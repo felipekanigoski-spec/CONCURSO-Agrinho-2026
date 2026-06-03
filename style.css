@@ -1,0 +1,97 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f0f4f8;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: #2E7D32;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+nav {
+    background: #1B5E20;
+    display: flex;
+    justify-content: center;
+    padding: 15px 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 20px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #C8E6C9;
+}
+
+.game-card {
+    background: white;
+    margin: 30px auto;
+    max-width: 800px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+button {
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.memory-board {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.memory-card {
+    width: 100px;
+    height: 100px;
+    background: #2E7D32;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.trash-game {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 50px;
+}
+
+#objects, #bins {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.item, .bin {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    background: #C8E6C9;
+    cursor: grab;
+}
+
+.bin {
+    background: #A5D6A7;
+    font-size: 1rem;
+}
