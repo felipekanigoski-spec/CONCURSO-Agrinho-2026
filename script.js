@@ -13,12 +13,12 @@ const bancoDados = {
         texto: "A ciência do campo desenvolve sementes mais fortes e naturais que resistem a climas extremos e pragas sem depender de excesso de defensivos químicos. O resultado é um alimento mais limpo, seguro e produtivo por hectare."
     },
     recursos: {
-        titulo: "> ECO_EFFICIÊNCIA ATIVA",
+        titulo: "> ECO_EFICIÊNCIA ATIVA",
         texto: "O reaproveitamento total de resíduos orgânicos transforma o que seria lixo em biofertilizantes e biogás, gerando energia limpa para abastecer as propriedades rurais e zerando a pegada de carbono do ecossistema agrícola."
     }
 };
 
-/* FUNÇÃO DE INTERAÇÃO DO PAINEL */
+/* FUNÇÃO DE INTERAÇÃO DO PAINEL CORRIGIDA */
 function ativarModulo(elementoClicado, chaveDados) {
     // Localiza e desativa o destaque visual de todos os módulos
     const modulos = document.querySelectorAll('.modulo-card');
@@ -27,7 +27,7 @@ function ativarModulo(elementoClicado, chaveDados) {
     // Ativa o visual apenas no módulo clicado
     elementoClicado.classList.add('ativo');
 
-    // Atualiza as informações do monitor de dados na tela
+    // Atualiza as informações do monitor de dados na tela de forma direta
     document.getElementById('print-titulo').innerText = bancoDados[chaveDados].titulo;
     document.getElementById('print-texto').innerText = bancoDados[chaveDados].texto;
 }
