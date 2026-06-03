@@ -3,48 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agrinho 2026 - Jogos Educativos</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <title>Agrinho 2026 - Jogos do Futuro</title>
+    <style>
+        /* VISUAL DO SITE (CSS) */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
 
-    <header>
-        <div class="logo">🌾 Agrinho 2026</div>
-        <nav>
-            <a href="#home">Início</a>
-            <a href="#jogos">Jogos</a>
-            <a href="#sobre">Sobre o Projeto</a>
-        </nav>
-    </header>
+        body {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
 
-    <main id="home">
-        <section class="hero">
-            <h1>Bem-vindo ao Portal de Jogos do Agrinho!</h1>
-            <p>Aprenda sobre a agricultura do futuro de forma divertida e interativa.</p>
-        </section>
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
 
-        <section id="jogos" class="game-container">
-            <h2>Jogo 1: Quiz da Sustentabilidade</h2>
-            <p>Responda às perguntas e mostre que você é um craque do campo!</p>
-            
-            <div id="quiz-box">
-                <div id="question">Carregando pergunta...</div>
-                <div id="options-buttons" class="btn-grid">
-                    </div>
-                <button id="next-btn" class="hide">Próxima Pergunta</button>
-            </div>
-            <div id="score-box" class="hide">
-                <h3>Parabéns! Você concluiu o Quiz.</h3>
-                <p id="final-score"></p>
-                <button onclick="restartQuiz()">Jogar Novamente</button>
-            </div>
-        </section>
-    </main>
+        header h1 {
+            font-size: 2.5rem;
+            color: #1b5e20;
+            margin-bottom: 10px;
+        }
 
-    <footer>
-        <p>&copy; 2026 Projeto Agrinho - Desenvolvido para o Concurso</p>
-    </footer>
+        header p {
+            font-size: 1.1rem;
+            color: #4caf50;
+        }
 
-    <script src="script.js"></script>
-</body>
-</html>
+        .container {
+            background-color: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+            width: 100%;
+            max-width: 550px;
+            text-align: center;
+            border: 3px solid #a5d6a7;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+        }
+
+        .opcoes-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .btn-opcao {
+            background-color: #f1f8e9;
+            border: 2px solid #81c784;
+            color: #2e7d32;
+            padding: 15px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-opcao:hover {
+            background-color: #c8e6c9;
+            transform: scale(1.02);
+        }
+
+        .correto {
+            background-color: #4caf50 !important;
+            color: white !important;
+            border-color: #2e7d32 !important;
+        }
+
+        .errado {
+            background-color: #e53935 !important;
+            color: white !important;
+            border-color: #b71c1c !important;
+        }
+
+        .resultado-tela {
+            display: none;
+        }
+
+        .btn-reiniciar {
+            background-color: #2e7d32;
+            color: white;
