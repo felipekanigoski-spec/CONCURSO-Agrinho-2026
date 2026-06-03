@@ -4,97 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agrinho 2026 - Jogos do Futuro</title>
-    <style>
-        /* VISUAL DO SITE (CSS) */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
-        }
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-        body {
-            background-color: #e8f5e9;
-            color: #2e7d32;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
+    <header>
+        <h1>🌾 Concurso Agrinho 2026</h1>
+        <p>Tecnologia e Sustentabilidade Alimentando o Mundo</p>
+    </header>
 
-        header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
+    <main class="container">
+        <div id="jogo-tela">
+            <h2 id="pergunta-texto">Carregando pergunta...</h2>
+            <div id="caixa-opcoes" class="opcoes-container">
+                </div>
+        </div>
 
-        header h1 {
-            font-size: 2.5rem;
-            color: #1b5e20;
-            margin-bottom: 10px;
-        }
+        <div id="resultado-tela" class="resultado-tela">
+            <h2>Fim do Jogo!</h2>
+            <p id="mensagem-final" style="font-size: 1.2rem; margin-bottom: 15px; font-weight: bold;"></p>
+            <button class="btn-reiniciar" onclick="reiniciarJogo()">Jogar Novamente</button>
+        </div>
+    </main>
 
-        header p {
-            font-size: 1.1rem;
-            color: #4caf50;
-        }
-
-        .container {
-            background-color: white;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-            width: 100%;
-            max-width: 550px;
-            text-align: center;
-            border: 3px solid #a5d6a7;
-        }
-
-        h2 {
-            margin-bottom: 20px;
-            font-size: 1.4rem;
-        }
-
-        .opcoes-container {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin-bottom: 20px;
-        }
-
-        .btn-opcao {
-            background-color: #f1f8e9;
-            border: 2px solid #81c784;
-            color: #2e7d32;
-            padding: 15px;
-            font-size: 1rem;
-            font-weight: bold;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .btn-opcao:hover {
-            background-color: #c8e6c9;
-            transform: scale(1.02);
-        }
-
-        .correto {
-            background-color: #4caf50 !important;
-            color: white !important;
-            border-color: #2e7d32 !important;
-        }
-
-        .errado {
-            background-color: #e53935 !important;
-            color: white !important;
-            border-color: #b71c1c !important;
-        }
-
-        .resultado-tela {
-            display: none;
-        }
-
-        .btn-reiniciar {
-            background-color: #2e7d32;
-            color: white;
+    <script src="script.js"></script>
+</body>
+</html>
