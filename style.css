@@ -1,67 +1,143 @@
-/* CONFIGURAÇÕES GERAIS */
+/* BASE DO SITE */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    scroll-behavior: smooth;
 }
 
-/* Fundo cinza bem claro para o site não ficar todo verde */
 body {
-    background-color: #f7f9f7;
-    color: #333333;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
+    background-color: #f4f7f4;
+    color: #333;
+}
+
+/* MENU DE NAVEGAÇÃO */
+nav {
+    background-color: #1b5e20;
     padding: 20px;
-}
-
-/* Cabeçalho do Site */
-header {
-    text-align: center;
-    margin-bottom: 30px;
-    margin-top: 20px;
-}
-
-header h1 {
-    font-size: 2.5rem;
-    color: #1b5e20; /* Verde escuro do Agrinho apenas no texto principal */
-    margin-bottom: 10px;
-}
-
-header p {
-    font-size: 1.1rem;
-    color: #4caf50; /* Verde mais claro no subtítulo */
-}
-
-/* CAIXA BRANCA DO JOGO */
-.container {
-    background-color: #ffffff; /* Fundo totalmente branco para destacar o jogo */
-    border-radius: 15px;
-    padding: 40px 30px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08); /* Sombra leve ao redor da caixa */
+    position: fixed;
     width: 100%;
-    max-width: 550px;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #81c784;
+}
+
+/* BANNER PRINCIPAL (HERO) */
+.hero {
+    background: linear-gradient(rgba(27, 94, 32, 0.8), rgba(46, 125, 50, 0.6));
+    color: white;
     text-align: center;
-    border: 2px solid #e0e0e0;
+    padding: 150px 20px 80px 20px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 1.3rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* CONTAINER PRINCIPAL */
+.container {
+    max-width: 1100px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+section {
+    margin-bottom: 60px;
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 
 h2 {
+    color: #1b5e20;
     margin-bottom: 25px;
-    font-size: 1.4rem;
+    border-left: 5px solid #4caf50;
+    padding-left: 15px;
+    font-size: 2rem;
+}
+
+/* GRID DE CARDS INTERATIVOS */
+.grid-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 25px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    border-color: #4caf50;
+    box-shadow: 0 10px 20px rgba(76, 175, 80, 0.15);
+}
+
+.card h3 {
     color: #2e7d32;
-    line-height: 1.4;
-}
-
-/* BOTÕES DE OPÇÕES */
-.opcoes-container {
+    margin-bottom: 12px;
     display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-bottom: 20px;
+    align-items: center;
+    gap: 10px;
 }
 
-.btn-opcao {
-    background-color: #ffffff;
-    border: 2px solid #c8e
+/* SISTEMA DE ABAS INTERATIVAS */
+.abas-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.btn-aba {
+    background-color: #e8f5e9;
+    border: 2px solid #a5d6a7;
+    color: #1b5e20;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.btn-aba:hover {
+    transform: scale(1.05);
+}
+
+.btn-aba.ativa {
+    background-color: #2e7d32;
+    color: white;
+    border-color: #1b5e20;
+}
+
+.conteudo-aba {
