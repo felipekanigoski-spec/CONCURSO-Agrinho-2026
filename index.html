@@ -83,7 +83,7 @@
         /* 1. SEÇÃO: DIRETÓRIO DE IMAGENS INTERATIVAS (GALERIA) */
         .galeria-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 25px;
             margin-bottom: 70px;
         }
@@ -246,7 +246,7 @@
         .barra-preenchida {
             background: linear-gradient(90deg, #00ff66, #00ffaa);
             height: 100%;
-            width: 85%; /* Controlado pelo JS */
+            width: 92%; /* Controlado pelo JS */
             transition: width 0.5s ease;
         }
 
@@ -336,119 +336,15 @@
                     </div>
                     <div class="galeria-info">
                         <h3>Sistemas Hidropônicos</h3>
-                        <p>Cultivos modernos em estufas verticais automatizadas que economizam espaço urbano e reduzem o uso de solo.</p>
+                        <p>Cultivos modernos em estufas verticais automatizadas que economizam espaço urbano e reduzem o uso de solo artificial.</p>
                     </div>
                 </div>
 
-            </div>
-        </section>
-
-        <section id="monitoramento">
-            <div class="secao-titulo">
-                <h2>Painel Operacional do Produtor</h2>
-                <p>Selecione um módulo de comando para carregar os relatórios e estatísticas virtuais</p>
-            </div>
-
-            <div class="dashboard">
-                
-                <div class="lista-botoes">
-                    <button class="btn-painel selecionado" onclick="trocarMural(this, 'irrigacao')">
-                        <span>[MÓDULO] IRRIGATRONIC</span>
-                        <div class="led-indicador"></div>
-                    </button>
-                    <button class="btn-painel" onclick="trocarMural(this, 'colheita')">
-                        <span>[MÓDULO] AUTO_HARVEST</span>
-                        <div class="led-indicador"></div>
-                    </button>
-                    <button class="btn-painel" onclick="trocarMural(this, 'analise')">
-                        <span>[MÓDULO] SOIL_ANALYSER</span>
-                        <div class="led-indicador"></div>
-                    </button>
-                </div>
-
-                <div class="visor-monitor">
-                    <div>
-                        <div id="visor-titulo" class="visor-header">> GESTÃO DE RECURSOS HÍDRICOS</div>
-                        <p id="visor-texto" class="visor-corpo">O sistema Irrigatronic gerencia gotejadores computadorizados. Ele analisa a previsão de chuva do dia e bloqueia a saída de água caso o solo já apresente a umidade ideal para o crescimento da planta.</p>
+                <div class="galeria-item">
+                    <div class="galeria-img-box">
+                        <img src="https://images.unsplash.com/photo-1592417817098-8f3d6eb18865?auto=format&fit=crop&w=600&q=80" alt="Manejo Biológico">
                     </div>
-
-                    <div class="grafico-caixa">
-                        <div id="grafico-titulo" class="grafico-label">EFICIÊNCIA HÍDRICA ATUAL: 92%</div>
-                        <div class="barra-progresso">
-                            <div id="grafico-barra" class="barra-preenchida" style="width: 92%;"></div>
-                        </div>
+                    <div class="galeria-info">
+                        <h3>Manejo de Pragas</h3>
+                        <p>Laboratórios modernos aplicando bioinsumos e inimigos naturais no controle biológico de insetos invasores sem venenos químicos.</p>
                     </div>
-                </div>
-
-            </div>
-        </section>
-
-        <section id="metas">
-            <div class="secao-titulo">
-                <h2>Metas de Sustentabilidade para 2026</h2>
-                <p>Diretrizes educativas promovidas pelo ecossistema do Agrinho</p>
-            </div>
-
-            <div class="relatorios-grid">
-                <div class="relatorio-card">
-                    <h4>Consciência Ecológica</h4>
-                    <p>Ensinar as novas gerações escolares a importância de alinhar a produção econômica com o respeito às matas ciliares e rios.</p>
-                </div>
-                <div class="relatorio-card">
-                    <h4>Inclusão Digital</h4>
-                    <p>Levar internet de alta velocidade e aplicativos intuitivos de gestão para os pequenos agricultores familiares locais.</p>
-                </div>
-                <div class="relatorio-card">
-                    <h4>Desperdício Zero</h4>
-                    <p>Aprimorar a logística de transporte e armazenamento para que os alimentos cheguem frescos às cidades sem perdas no trajeto.</p>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <footer>
-        <p>CONSOLE_ROOT // PORTAL DESENVOLVIDO PARA O CONCURSO AGRINHO 2026</p>
-    </footer>
-
-    <script>
-        // Banco de Dados Dinâmico para o Dashboard
-        const dadosDashboard = {
-            irrigacao: {
-                titulo: "> GESTÃO DE RECURSOS HÍDRICOS",
-                texto: "O sistema Irrigatronic gerencia gotejadores computadorizados. Ele analisa a previsão de chuva do dia e bloqueia a saída de água caso o solo já apresente a umidade ideal para o crescimento da planta.",
-                graficoTxt: "EFICIÊNCIA HÍDRICA ATUAL: 92%",
-                porcentagem: "92%"
-            },
-            colheita: {
-                titulo: "> AUTOMAÇÃO DE COLHEITA MÓVEL",
-                texto: "O módulo Auto_Harvest controla sistemas mecânicos que calculam o tamanho e a cor exata das frutas antes de colhê-las, reduzindo o descarte de alimentos verdes ou danificados no campo.",
-                graficoTxt: "PRODUTIVIDADE OPERACIONAL: 78%",
-                porcentagem: "78%"
-            },
-            analise: {
-                titulo: "> ANÁLISE DE SAÚDE DO SOLO",
-                texto: "A sonda Soil_Analyser faz a leitura química de nutrientes na terra a cada hora. O produtor sabe exatamente quando repor compostos orgânicos sem aplicar elementos desnecessários na natureza.",
-                graficoTxt: "PRESERVAÇÃO DOS NUTRIENTES: 85%",
-                porcentagem: "85%"
-            }
-        };
-
-        function trocarMural(botaoClicado, chave) {
-            // Remove realce de todos os botões
-            const botoes = document.querySelectorAll('.btn-painel');
-            botoes.forEach(btn => btn.classList.remove('selecionado'));
-
-            // Realça o botão clicado
-            botaoClicado.classList.add('selecionado');
-
-            // Altera textos e o gráfico dinamicamente com base no banco de dados acima
-            const dados = dadosDashboard[chave];
-            document.getElementById('visor-titulo').innerText = dados.titulo;
-            document.getElementById('visor-texto').innerText = dados.texto;
-            document.getElementById('grafico-titulo').innerText = dados.graficoTxt;
-            document.getElementById('grafico-barra').style.width = dados.porcentagem;
-        }
-    </script>
-</body>
-</html>
