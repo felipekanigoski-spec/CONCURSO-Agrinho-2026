@@ -1,97 +1,121 @@
-body {
-    font-family: Arial, sans-serif;
-    background: #f0f4f8;
-    color: #333;
+/* Configurações Gerais */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+body {
+    background-color: #f4f9f4;
+    color: #333;
+}
+
+/* Cabeçalho */
 header {
-    background: #2E7D32;
+    background-color: #2e7d32;
     color: white;
-    text-align: center;
-    padding: 30px 20px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-nav {
-    background: #1B5E20;
-    display: flex;
-    justify-content: center;
-    padding: 15px 0;
+header .logo {
+    font-size: 24px;
+    font-weight: bold;
 }
 
 nav a {
     color: white;
     text-decoration: none;
-    margin: 0 20px;
-    font-weight: bold;
+    margin-left: 20px;
+    font-weight: 500;
 }
 
 nav a:hover {
-    color: #C8E6C9;
+    text-decoration: underline;
 }
 
-.game-card {
+/* Banner Principal */
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(rgba(46, 125, 50, 0.1), rgba(46, 125, 50, 0.2));
+}
+
+.hero h1 {
+    color: #1b5e20;
+    margin-bottom: 10px;
+}
+
+/* Seção do Jogo */
+.game-container {
+    max-width: 600px;
+    margin: 40px auto;
     background: white;
-    margin: 30px auto;
-    max-width: 800px;
-    padding: 20px;
+    padding: 30px;
     border-radius: 12px;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.game-container h2 {
+    color: #2e7d32;
+    margin-bottom: 20px;
+}
+
+#quiz-box {
+    margin-top: 20px;
+}
+
+#question {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.btn-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-bottom: 20px;
 }
 
 button {
-    margin: 5px;
-    padding: 10px 20px;
-    font-size: 1rem;
+    background-color: #81c784;
+    color: #1b5e20;
+    border: 2px solid #4caf50;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
     cursor: pointer;
+    transition: 0.2s;
 }
 
-.memory-board {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.memory-card {
-    width: 100px;
-    height: 100px;
-    background: #2E7D32;
+button:hover {
+    background-color: #4caf50;
     color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2rem;
-    border-radius: 8px;
-    cursor: pointer;
 }
 
-.trash-game {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 50px;
+#next-btn {
+    background-color: #2e7d32;
+    color: white;
 }
 
-#objects, #bins {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
+/* Utilitários */
+.hide {
+    display: none !important;
 }
 
-.item, .bin {
-    width: 80px;
-    height: 80px;
-    border-radius: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2rem;
-    background: #C8E6C9;
-    cursor: grab;
-}
-
-.bin {
-    background: #A5D6A7;
-    font-size: 1rem;
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
