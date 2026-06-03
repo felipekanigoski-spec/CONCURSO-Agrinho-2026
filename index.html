@@ -1,63 +1,50 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Agrinho 2026 - Jogos Educativos</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agrinho 2026 - Jogos Educativos</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-    <h1>🌱 Agrinho 2026</h1>
-    <p>Jogos Educativos - Ensino Médio</p>
-</header>
+    <header>
+        <div class="logo">🌾 Agrinho 2026</div>
+        <nav>
+            <a href="#home">Início</a>
+            <a href="#jogos">Jogos</a>
+            <a href="#sobre">Sobre o Projeto</a>
+        </nav>
+    </header>
 
-<nav>
-    <a href="#jogo1">Quiz do Campo</a>
-    <a href="#jogo2">Memória da Natureza</a>
-    <a href="#jogo3">Caça ao Lixo</a>
-</nav>
+    <main id="home">
+        <section class="hero">
+            <h1>Bem-vindo ao Portal de Jogos do Agrinho!</h1>
+            <p>Aprenda sobre a agricultura do futuro de forma divertida e interativa.</p>
+        </section>
 
-<section id="jogo1" class="game-card">
-    <h2>Quiz do Campo</h2>
-    <p>Responda a pergunta correta sobre sustentabilidade!</p>
-    <p id="quiz-question"></p>
-    <button onclick="checkAnswer(0)">A</button>
-    <button onclick="checkAnswer(1)">B</button>
-    <button onclick="checkAnswer(2)">C</button>
-    <p id="quiz-feedback"></p>
-</section>
+        <section id="jogos" class="game-container">
+            <h2>Jogo 1: Quiz da Sustentabilidade</h2>
+            <p>Responda às perguntas e mostre que você é um craque do campo!</p>
+            
+            <div id="quiz-box">
+                <div id="question">Carregando pergunta...</div>
+                <div id="options-buttons" class="btn-grid">
+                    </div>
+                <button id="next-btn" class="hide">Próxima Pergunta</button>
+            </div>
+            <div id="score-box" class="hide">
+                <h3>Parabéns! Você concluiu o Quiz.</h3>
+                <p id="final-score"></p>
+                <button onclick="restartQuiz()">Jogar Novamente</button>
+            </div>
+        </section>
+    </main>
 
-<section id="jogo2" class="game-card">
-    <h2>Memória da Natureza</h2>
-    <p>Clique nas cartas e encontre os pares!</p>
-    <div id="memory-board" class="memory-board"></div>
-    <p id="memory-feedback"></p>
-</section>
+    <footer>
+        <p>&copy; 2026 Projeto Agrinho - Desenvolvido para o Concurso</p>
+    </footer>
 
-<section id="jogo3" class="game-card">
-    <h2>Caça ao Lixo</h2>
-    <p>Arraste os objetos para a lixeira correta!</p>
-    <div class="trash-game">
-        <div id="objects">
-            <div class="item" draggable="true" data-type="orgânico">🍎</div>
-            <div class="item" draggable="true" data-type="reciclável">📰</div>
-            <div class="item" draggable="true" data-type="orgânico">🍌</div>
-            <div class="item" draggable="true" data-type="reciclável">♻️</div>
-        </div>
-        <div id="bins">
-            <div class="bin" data-type="orgânico">Orgânico</div>
-            <div class="bin" data-type="reciclável">Reciclável</div>
-        </div>
-    </div>
-    <p id="trash-feedback"></p>
-</section>
-
-<footer>
-    <p>© 2026 Projeto Agrinho Paraná - Ensino Médio</p>
-</footer>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
