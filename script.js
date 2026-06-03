@@ -1,101 +1,19 @@
-// BANCO DE PERGUNTAS DO QUIZ
-const perguntas = [
-    {
-        pergunta: "Como a Inteligência Artificial pode ajudar o produtor no campo?",
-        alternativas: [
-            { texto: "Prevendo pragas e analisando a saúde do solo por imagens.", correta: true },
-            { texto: "Substituindo completamente o trabalho humano e a natureza.", correta: false },
-            { texto: "Fazendo chover na hora exata que a planta precisa.", correta: false }
-        ]
-    },
-    {
-        pergunta: "Qual é o principal objetivo da agricultura sustentável?",
-        alternativas: [
-            { texto: "Produzir alimentos usando o máximo de recursos possível.", correta: false },
-            { texto: "Preservar o meio ambiente para as próximas gerações enquanto produz alimentos.", correta: true },
-            { texto: "Abandonar a tecnologia e voltar a plantar como antigamente.", correta: false }
-        ]
-    },
-    {
-        pergunta: "O uso de drones na lavoura serve principalmente para:",
-        alternativas: [
-            { texto: "Mapear a propriedade e aplicar insumos de forma precisa.", correta: true },
-            { texto: "Espantar pássaros e animais silvestres.", correta: false },
-            { texto: "Transportar a colheita pesada até a cidade.", correta: false }
-        ]
-    }
-];
+// Objeto que guarda as informações das abas tecnológicas do Agrinho
+const infosAbas = {
+    drones: "Os drones sobrevoam as plantações tirando fotos de alta resolução. Com essas imagens, o agricultor descobre pontos exatos com pragas ou falta de água sem precisar andar por hectares de terra, aplicando remédios apenas onde é realmente necessário.",
+    ia: "A Inteligência Artificial cruza dados do clima, histórico do solo e previsões de tempo para dizer ao produtor qual é o melhor dia para plantar e colher, reduzindo riscos de perder a lavoura por secas ou tempestades.",
+    hidroponia: "As fazendas verticais utilizam técnicas como a hidroponia (plantio na água com nutrientes, sem solo) dentro de prédios urbanos. Isso permite cultivar alimentos frescos dentro das grandes cidades, economizando 95% de água."
+};
 
-let indiceAtual = 0;
-let pontos = 0;
+// Função que realiza a troca de abas de forma dinâmica
+function mudarAba(botaoClicado, chaveInfo) {
+    // Localiza todas as abas e remove a cor de destaque (classe 'ativa')
+    const botoes = document.querySelectorAll('.btn-aba');
+    botoes.forEach(b => b.classList.remove('ativa'));
 
-function iniciarJogo() {
-    indiceAtual = 0;
-    pontos = 0;
-    document.getElementById("jogo-tela").style.display = "block";
-    document.getElementById("resultado-tela").style.display = "none";
-    mostrarPergunta();
+    // Adiciona a cor de destaque apenas no botão que acabou de ser clicado
+    botaoClicado.classList.add('ativa');
+
+    // Altera o texto exibido na tela de acordo com a chave escolhida
+    document.getElementById('texto-aba').innerText = infosAbas[chaveInfo];
 }
-
-function mostrarPergunta() {
-    const perguntaAtual = perguntas[indiceAtual];
-    document.getElementById("pergunta-texto").innerText = perguntaAtual.pergunta;
-    
-    const caixaOpcoes = document.getElementById("caixa-opcoes");
-    caixaOpcoes.innerHTML = ""; // Limpa os botões da pergunta anterior
-
-    perguntaAtual.alternativas.forEach(alt => {
-        const botao = document.createElement("button");
-        botao.innerText = alt.texto;
-        botao.classList.add("btn-opcao");
-        botao.addEventListener("click", () => verificarResposta(botao, alt.correta));
-        caixaOpcoes.appendChild(botao);
-    });
-}
-
-function verificarResposta(botaoSelecionado, eCorreta) {
-    // Bloqueia outros cliques para o usuário não clicar em mais de uma opção
-    const botoes = document.querySelectorAll(".btn-opcao");
-    botoes.forEach(b => b.disabled = true);
-
-    if (eCorreta) {
-        botaoSelecionado.classList.add("correto");
-        pontos++;
-    } else {
-        botaoSelecionado.classList.add("errado");
-        // Mostra qual era a alternativa certa pintando-a de verde
-        botoes.forEach(b => {
-            const perguntaAtual = perguntas[indiceAtual];
-            perguntaAtual.alternativas.forEach(alt => {
-                if(alt.correta && b.innerText === alt.texto) {
-                    b.classList.add("correto");
-                }
-            });
-        });
-    }
-
-    // Espera 1,5 segundos (para dar tempo de ver a resposta) e passa para a próxima
-    setTimeout(() => {
-        indiceAtual++;
-        if (indiceAtual < perguntas.length) {
-            mostrarPergunta();
-        } else {
-            mostrarResultado();
-        }
-    }, 1500);
-}
-
-function mostrarResultado() {
-    document.getElementById("jogo-tela").style.display = "none";
-    document.getElementById("resultado-tela").style.display = "block";
-    
-    const mensagem = document.getElementById("mensagem-final");
-    mensagem.innerText = `Você acertou ${pontos} de ${perguntas.length} perguntas!`;
-}
-
-function reiniciarJogo() {
-    iniciarJogo();
-}
-
-// Inicia o jogo automaticamente assim que a página é carregada
-window.onload = iniciarJogo;
