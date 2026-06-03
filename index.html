@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agrinho 2026 - Hub de Inovação Agrícola</title>
     <style>
-        /* CONFIGURAÇÕES GERAIS - VISUAL CLARO E LIMPO */
+        /* CONFIGURAÇÕES GERAIS - DARK TECH */
         * {
             margin: 0;
             padding: 0;
@@ -15,14 +15,15 @@
         }
 
         body {
-            background-color: #f4f7f4; /* Fundo cinza bem claro */
-            color: #333333;
-            padding-top: 80px;
+            background-color: #0c1115;
+            color: #d1dad1;
+            padding-top: 70px;
         }
 
         /* BARRA DE NAVEGAÇÃO */
         nav {
-            background-color: #1b5e20; /* Verde escuro do Agrinho */
+            background-color: #070a0c;
+            border-bottom: 2px solid #00ff66;
             padding: 15px 20px;
             position: fixed;
             width: 100%;
@@ -31,12 +32,12 @@
             display: flex;
             justify-content: space-around;
             align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
         nav .logo {
-            color: #ffffff;
+            color: #00ff66;
             font-weight: bold;
+            font-family: monospace;
             font-size: 1.2rem;
         }
 
@@ -45,12 +46,11 @@
             text-decoration: none;
             margin-left: 20px;
             font-size: 0.95rem;
-            font-weight: bold;
             transition: color 0.3s;
         }
 
         nav .links a:hover {
-            color: #c8e6c9;
+            color: #00ff66;
         }
 
         /* CONTAINER PRINCIPAL */
@@ -64,40 +64,42 @@
         .secao-titulo {
             text-align: center;
             margin-bottom: 40px;
+            font-family: monospace;
         }
 
         .secao-titulo h2 {
-            color: #1b5e20;
+            color: #00ff66;
             font-size: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
             margin-bottom: 8px;
         }
 
         .secao-titulo p {
-            color: #666666;
+            color: #8fa08f;
             font-size: 1rem;
         }
 
-        /* 1. SEÇÃO: GALERIA DE IMAGENS */
+        /* 1. SEÇÃO: DIRETÓRIO DE IMAGENS INTERATIVAS (GALERIA) */
         .galeria-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 25px;
             margin-bottom: 70px;
         }
 
         .galeria-item {
-            background-color: #ffffff;
-            border: 1px solid #e0e0e0;
+            background-color: #12181e;
+            border: 1px solid #23313a;
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
             transition: all 0.3s ease;
         }
 
         .galeria-item:hover {
-            transform: translateY(-5px);
-            border-color: #4caf50;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transform: scale(1.03);
+            border-color: #00ff66;
+            box-shadow: 0 5px 20px rgba(0, 255, 102, 0.15);
         }
 
         .galeria-img-box {
@@ -122,27 +124,26 @@
         }
 
         .galeria-info h3 {
-            color: #2e7d32;
+            color: #ffffff;
             margin-bottom: 10px;
             font-size: 1.2rem;
         }
 
         .galeria-info p {
-            color: #555555;
+            color: #a3b2a3;
             font-size: 0.9rem;
             line-height: 1.5;
         }
 
-        /* 2. SEÇÃO: DASHBOARD INTERATIVO CLARO */
+        /* 2. SEÇÃO: DASHBOARD INTERATIVO EXPANDIDO */
         .dashboard {
             display: grid;
             grid-template-columns: 1fr 2fr;
             gap: 25px;
-            background-color: #ffffff;
-            border: 1px solid #e0e0e0;
+            background-color: #12181e;
+            border: 1px solid #23313a;
             padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             margin-bottom: 70px;
         }
 
@@ -159,14 +160,15 @@
         }
 
         .btn-painel {
-            background: #f9f9f9;
-            border: 1px solid #dcdcdc;
-            color: #333333;
+            background: #172027;
+            border: 1px solid #2d3f4b;
+            color: #ffffff;
             padding: 15px;
             border-radius: 6px;
             cursor: pointer;
             text-align: left;
             font-weight: bold;
+            font-family: monospace;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -174,31 +176,31 @@
         }
 
         .btn-painel:hover {
-            border-color: #4caf50;
-            background: #f1f8e9;
+            border-color: #00ff66;
+            background: #1c2832;
         }
 
         .btn-painel.selecionado {
-            border-color: #2e7d32;
-            background: #e8f5e9;
-            color: #1b5e20;
+            border-color: #00ff66;
+            background: rgba(0, 255, 102, 0.05);
+            color: #00ff66;
         }
 
         .led-indicador {
             width: 10px;
             height: 10px;
-            background-color: #bdbdbd;
+            background-color: #3e5361;
             border-radius: 50%;
         }
 
         .btn-painel.selecionado .led-indicador {
-            background-color: #4caf50;
-            box-shadow: 0 0 8px #4caf50;
+            background-color: #00ff66;
+            box-shadow: 0 0 10px #00ff66;
         }
 
         .visor-monitor {
-            background-color: #f9f9f9;
-            border: 1px solid #e0e0e0;
+            background-color: #070a0d;
+            border: 1px solid #23313a;
             border-radius: 6px;
             padding: 30px;
             display: flex;
@@ -207,48 +209,48 @@
         }
 
         .visor-header {
-            color: #1b5e20;
-            font-weight: bold;
+            color: #00ff66;
+            font-family: monospace;
             font-size: 1.3rem;
             margin-bottom: 15px;
         }
 
         .visor-corpo {
             line-height: 1.7;
-            color: #444444;
+            color: #cbd7cb;
             margin-bottom: 20px;
         }
 
-        /* Gráfico Simulado */
+        /* Gráfico Simulado via CSS */
         .grafico-caixa {
-            background-color: #ffffff;
+            background-color: #12181e;
             padding: 15px;
             border-radius: 6px;
-            border: 1px solid #e0e0e0;
+            border: 1px solid #23313a;
         }
 
         .grafico-label {
             font-size: 0.85rem;
-            color: #666666;
+            color: #8fa08f;
             margin-bottom: 8px;
-            font-weight: bold;
+            font-family: monospace;
         }
 
         .barra-progresso {
-            background-color: #e0e0e0;
+            background-color: #23313a;
             height: 12px;
             border-radius: 10px;
             overflow: hidden;
         }
 
         .barra-preenchida {
-            background: linear-gradient(90deg, #4caf50, #81c784);
+            background: linear-gradient(90deg, #00ff66, #00ffaa);
             height: 100%;
-            width: 92%;
+            width: 85%; /* Controlado pelo JS */
             transition: width 0.5s ease;
         }
 
-        /* 3. SEÇÃO: METAS */
+        /* 3. SEÇÃO: CENTRAL DE RELATÓRIOS (METAS AGRINHO) */
         .relatorios-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -256,40 +258,41 @@
         }
 
         .relatorio-card {
-            background-color: #ffffff;
-            border-top: 4px solid #2e7d32;
+            background-color: #12181e;
+            border-top: 4px solid #00ff66;
             padding: 25px;
             border-radius: 0 0 8px 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
 
         .relatorio-card h4 {
-            color: #1b5e20;
+            color: #ffffff;
             font-size: 1.1rem;
             margin-bottom: 10px;
         }
 
         .relatorio-card p {
-            color: #555555;
+            color: #a3b2a3;
             font-size: 0.9rem;
             line-height: 1.5;
         }
 
-        /* RODAPÉ */
+        /* RODAPÉ TERMINAL */
         footer {
-            background-color: #1b5e20;
+            background-color: #070a0c;
+            border-top: 1px solid #23313a;
             text-align: center;
             padding: 30px;
             margin-top: 50px;
-            font-size: 0.9rem;
-            color: #ffffff;
+            font-family: monospace;
+            font-size: 0.85rem;
+            color: #5c7260;
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">🌾 PORTAL AGRINHO 2026</div>
+        <div class="logo">> AGRO_SYSTEM_2026</div>
         <div class="links">
             <a href="#tecnologias">Tecnologias</a>
             <a href="#monitoramento">Monitoramento</a>
@@ -323,4 +326,129 @@
                     </div>
                     <div class="galeria-info">
                         <h3>Drones de Alta Precisão</h3>
-                        <p
+                        <p>Equipamentos aéreos autônomos que realizam varreduras térmicas fotográficas para identificar pragas instantaneamente.</p>
+                    </div>
+                </div>
+
+                <div class="galeria-item">
+                    <div class="galeria-img-box">
+                        <img src="https://images.unsplash.com/photo-1530595467537-0b5996c41f2d?auto=format&fit=crop&w=600&q=80" alt="Hidroponia urbana">
+                    </div>
+                    <div class="galeria-info">
+                        <h3>Sistemas Hidropônicos</h3>
+                        <p>Cultivos modernos em estufas verticais automatizadas que economizam espaço urbano e reduzem o uso de solo.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="monitoramento">
+            <div class="secao-titulo">
+                <h2>Painel Operacional do Produtor</h2>
+                <p>Selecione um módulo de comando para carregar os relatórios e estatísticas virtuais</p>
+            </div>
+
+            <div class="dashboard">
+                
+                <div class="lista-botoes">
+                    <button class="btn-painel selecionado" onclick="trocarMural(this, 'irrigacao')">
+                        <span>[MÓDULO] IRRIGATRONIC</span>
+                        <div class="led-indicador"></div>
+                    </button>
+                    <button class="btn-painel" onclick="trocarMural(this, 'colheita')">
+                        <span>[MÓDULO] AUTO_HARVEST</span>
+                        <div class="led-indicador"></div>
+                    </button>
+                    <button class="btn-painel" onclick="trocarMural(this, 'analise')">
+                        <span>[MÓDULO] SOIL_ANALYSER</span>
+                        <div class="led-indicador"></div>
+                    </button>
+                </div>
+
+                <div class="visor-monitor">
+                    <div>
+                        <div id="visor-titulo" class="visor-header">> GESTÃO DE RECURSOS HÍDRICOS</div>
+                        <p id="visor-texto" class="visor-corpo">O sistema Irrigatronic gerencia gotejadores computadorizados. Ele analisa a previsão de chuva do dia e bloqueia a saída de água caso o solo já apresente a umidade ideal para o crescimento da planta.</p>
+                    </div>
+
+                    <div class="grafico-caixa">
+                        <div id="grafico-titulo" class="grafico-label">EFICIÊNCIA HÍDRICA ATUAL: 92%</div>
+                        <div class="barra-progresso">
+                            <div id="grafico-barra" class="barra-preenchida" style="width: 92%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="metas">
+            <div class="secao-titulo">
+                <h2>Metas de Sustentabilidade para 2026</h2>
+                <p>Diretrizes educativas promovidas pelo ecossistema do Agrinho</p>
+            </div>
+
+            <div class="relatorios-grid">
+                <div class="relatorio-card">
+                    <h4>Consciência Ecológica</h4>
+                    <p>Ensinar as novas gerações escolares a importância de alinhar a produção econômica com o respeito às matas ciliares e rios.</p>
+                </div>
+                <div class="relatorio-card">
+                    <h4>Inclusão Digital</h4>
+                    <p>Levar internet de alta velocidade e aplicativos intuitivos de gestão para os pequenos agricultores familiares locais.</p>
+                </div>
+                <div class="relatorio-card">
+                    <h4>Desperdício Zero</h4>
+                    <p>Aprimorar a logística de transporte e armazenamento para que os alimentos cheguem frescos às cidades sem perdas no trajeto.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>CONSOLE_ROOT // PORTAL DESENVOLVIDO PARA O CONCURSO AGRINHO 2026</p>
+    </footer>
+
+    <script>
+        // Banco de Dados Dinâmico para o Dashboard
+        const dadosDashboard = {
+            irrigacao: {
+                titulo: "> GESTÃO DE RECURSOS HÍDRICOS",
+                texto: "O sistema Irrigatronic gerencia gotejadores computadorizados. Ele analisa a previsão de chuva do dia e bloqueia a saída de água caso o solo já apresente a umidade ideal para o crescimento da planta.",
+                graficoTxt: "EFICIÊNCIA HÍDRICA ATUAL: 92%",
+                porcentagem: "92%"
+            },
+            colheita: {
+                titulo: "> AUTOMAÇÃO DE COLHEITA MÓVEL",
+                texto: "O módulo Auto_Harvest controla sistemas mecânicos que calculam o tamanho e a cor exata das frutas antes de colhê-las, reduzindo o descarte de alimentos verdes ou danificados no campo.",
+                graficoTxt: "PRODUTIVIDADE OPERACIONAL: 78%",
+                porcentagem: "78%"
+            },
+            analise: {
+                titulo: "> ANÁLISE DE SAÚDE DO SOLO",
+                texto: "A sonda Soil_Analyser faz a leitura química de nutrientes na terra a cada hora. O produtor sabe exatamente quando repor compostos orgânicos sem aplicar elementos desnecessários na natureza.",
+                graficoTxt: "PRESERVAÇÃO DOS NUTRIENTES: 85%",
+                porcentagem: "85%"
+            }
+        };
+
+        function trocarMural(botaoClicado, chave) {
+            // Remove realce de todos os botões
+            const botoes = document.querySelectorAll('.btn-painel');
+            botoes.forEach(btn => btn.classList.remove('selecionado'));
+
+            // Realça o botão clicado
+            botaoClicado.classList.add('selecionado');
+
+            // Altera textos e o gráfico dinamicamente com base no banco de dados acima
+            const dados = dadosDashboard[chave];
+            document.getElementById('visor-titulo').innerText = dados.titulo;
+            document.getElementById('visor-texto').innerText = dados.texto;
+            document.getElementById('grafico-titulo').innerText = dados.graficoTxt;
+            document.getElementById('grafico-barra').style.width = dados.porcentagem;
+        }
+    </script>
+</body>
+</html>
