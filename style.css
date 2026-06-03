@@ -6,9 +6,10 @@
     font-family: 'Arial', sans-serif;
 }
 
+/* O fundo da tela inteira agora é um cinza bem claro para dar contraste */
 body {
-    background-color: #e8f5e9;
-    color: #2e7d32;
+    background-color: #f7f9f7;
+    color: #333333;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -16,37 +17,41 @@ body {
     padding: 20px;
 }
 
+/* Cabeçalho do Site */
 header {
     text-align: center;
     margin-bottom: 30px;
+    margin-top: 20px;
 }
 
 header h1 {
     font-size: 2.5rem;
-    color: #1b5e20;
+    color: #1b5e20; /* Verde escuro do Agrinho apenas no texto */
     margin-bottom: 10px;
 }
 
 header p {
     font-size: 1.1rem;
-    color: #4caf50;
+    color: #4caf50; /* Verde claro no subtítulo */
 }
 
-/* CAIXA DO JOGO */
+/* CAIXA BRANCA DO JOGO (Para destacar do fundo) */
 .container {
-    background-color: white;
+    background-color: #ffffff; /* Fundo totalmente branco */
     border-radius: 15px;
-    padding: 30px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    padding: 40px 30px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08); /* Sombra leve */
     width: 100%;
     max-width: 550px;
     text-align: center;
-    border: 3px solid #a5d6a7;
+    border: 2px solid #e0e0e0;
 }
 
 h2 {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     font-size: 1.4rem;
+    color: #2e7d32;
+    line-height: 1.4;
 }
 
 /* BOTÕES DE OPÇÕES */
@@ -58,8 +63,8 @@ h2 {
 }
 
 .btn-opcao {
-    background-color: #f1f8e9;
-    border: 2px solid #81c784;
+    background-color: #ffffff;
+    border: 2px solid #c8e6c9; /* Borda verde clara */
     color: #2e7d32;
     padding: 15px;
     font-size: 1rem;
@@ -67,22 +72,25 @@ h2 {
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.2s ease;
+    text-align: center;
 }
 
+/* Efeito ao passar o mouse nos botões */
 .btn-opcao:hover {
-    background-color: #c8e6c9;
-    transform: scale(1.02);
+    background-color: #e8f5e9;
+    border-color: #81c784;
+    transform: translateY(-2px);
 }
 
 /* FEEDBACK DE ACERTO E ERRO */
 .correto {
-    background-color: #4caf50 !important;
+    background-color: #4caf50 !important; /* Verde quando acerta */
     color: white !important;
     border-color: #2e7d32 !important;
 }
 
 .errado {
-    background-color: #e53935 !important;
+    background-color: #e53935 !important; /* Vermelho quando erra */
     color: white !important;
     border-color: #b71c1c !important;
 }
@@ -102,7 +110,9 @@ h2 {
     cursor: pointer;
     font-weight: bold;
     margin-top: 15px;
+    transition: background 0.2s;
 }
 
 .btn-reiniciar:hover {
-    background-color: #1b5e20
+    background-color: #1b5e20;
+}
