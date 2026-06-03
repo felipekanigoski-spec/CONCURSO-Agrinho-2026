@@ -3,30 +3,213 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agrinho 2026 - Jogos do Futuro</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Agrinho 2026 - O Futuro do Campo</title>
+    <style>
+        /* BASE DO SITE */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #f4f7f4;
+            color: #333;
+        }
+
+        /* MENU DE NAVEGAÇÃO */
+        nav {
+            background-color: #1b5e20;
+            padding: 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #81c784;
+        }
+
+        /* BANNER PRINCIPAL (HERO) */
+        .hero {
+            background: linear-gradient(rgba(27, 94, 32, 0.8), rgba(46, 125, 50, 0.6));
+            color: white;
+            text-align: center;
+            padding: 150px 20px 80px 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* CONTAINER PRINCIPAL */
+        .container {
+            max-width: 1100px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            margin-bottom: 60px;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            color: #1b5e20;
+            margin-bottom: 25px;
+            border-left: 5px solid #4caf50;
+            padding-left: 15px;
+            font-size: 2rem;
+        }
+
+        /* GRID DE CARDS INTERATIVOS */
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        /* Efeito de movimento no Card */
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: #4caf50;
+            box-shadow: 0 10px 20px rgba(76, 175, 80, 0.15);
+        }
+
+        .card h3 {
+            color: #2e7d32;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* SISTEMA DE ABAS INTERATIVAS */
+        .abas-container {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn-aba {
+            background-color: #e8f5e9;
+            border: 2px solid #a5d6a7;
+            color: #1b5e20;
+            padding: 12px 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .btn-aba:hover {
+            transform: scale(1.05);
+        }
+
+        .btn-aba.ativa {
+            background-color: #2e7d32;
+            color: white;
+            border-color: #1b5e20;
+        }
+
+        .conteudo-aba {
+            background: #f9f9f9;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 4px solid #2e7d32;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+
+        /* DESTAQUE DE DADOS (CONTADORES VISUAIS) */
+        .dados-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .dado-box {
+            background: #f1f8e9;
+            padding: 20px;
+            border-radius: 10px;
+            min-width: 200px;
+        }
+
+        .dado-numero {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #1b5e20;
+            margin-bottom: 5px;
+        }
+
+        /* RODAPÉ */
+        footer {
+            background-color: #1b5e20;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            margin-top: 40px;
+        }
+    </style>
 </head>
 <body>
 
-    <header>
-        <h1>🌾 Concurso Agrinho 2026</h1>
-        <p>Tecnologia e Sustentabilidade Alimentando o Mundo</p>
+    <nav>
+        <a href="#inicio">Início</a>
+        <a href="#sustentabilidade">Sustentabilidade</a>
+        <a href="#tecnologia">Tecnologias</a>
+        <a href="#dados">Impacto do Agro</a>
+    </nav>
+
+    <header id="inicio" class="hero">
+        <h1>Agrinho 2026: Conectando Campo e Tecnologia</h1>
+        <p>Descubra como as inovações digitais e as práticas sustentáveis estão transformando a agricultura e protegendo o planeta.</p>
     </header>
 
     <main class="container">
-        <div id="jogo-tela">
-            <h2 id="pergunta-texto">Carregando pergunta...</h2>
-            <div id="caixa-opcoes" class="opcoes-container">
-                </div>
-        </div>
 
-        <div id="resultado-tela" class="resultado-tela">
-            <h2>Fim do Jogo!</h2>
-            <p id="mensagem-final" style="font-size: 1.2rem; margin-bottom: 15px; font-weight: bold;"></p>
-            <button class="btn-reiniciar" onclick="reiniciarJogo()">Jogar Novamente</button>
-        </div>
-    </main>
-
-    <script src="script.js"></script>
-</body>
-</html>
+        <section id="sustentabilidade">
+            <h2>Pilares da Sustentabilidade no Campo</h2>
+            <p style="margin-bottom: 20px; color: #666;">Passe o mouse por cima dos cards para explorar as informações:</p>
+            
+            <div class="grid-cards">
+                <div class="card">
