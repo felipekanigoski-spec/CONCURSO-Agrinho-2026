@@ -6,7 +6,7 @@
     font-family: 'Arial', sans-serif;
 }
 
-/* O fundo da tela inteira agora é um cinza bem claro para dar contraste */
+/* Fundo cinza bem claro para o site não ficar todo verde */
 body {
     background-color: #f7f9f7;
     color: #333333;
@@ -26,21 +26,21 @@ header {
 
 header h1 {
     font-size: 2.5rem;
-    color: #1b5e20; /* Verde escuro do Agrinho apenas no texto */
+    color: #1b5e20; /* Verde escuro do Agrinho apenas no texto principal */
     margin-bottom: 10px;
 }
 
 header p {
     font-size: 1.1rem;
-    color: #4caf50; /* Verde claro no subtítulo */
+    color: #4caf50; /* Verde mais claro no subtítulo */
 }
 
-/* CAIXA BRANCA DO JOGO (Para destacar do fundo) */
+/* CAIXA BRANCA DO JOGO */
 .container {
-    background-color: #ffffff; /* Fundo totalmente branco */
+    background-color: #ffffff; /* Fundo totalmente branco para destacar o jogo */
     border-radius: 15px;
     padding: 40px 30px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08); /* Sombra leve */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08); /* Sombra leve ao redor da caixa */
     width: 100%;
     max-width: 550px;
     text-align: center;
@@ -64,55 +64,4 @@ h2 {
 
 .btn-opcao {
     background-color: #ffffff;
-    border: 2px solid #c8e6c9; /* Borda verde clara */
-    color: #2e7d32;
-    padding: 15px;
-    font-size: 1rem;
-    font-weight: bold;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    text-align: center;
-}
-
-/* Efeito ao passar o mouse nos botões */
-.btn-opcao:hover {
-    background-color: #e8f5e9;
-    border-color: #81c784;
-    transform: translateY(-2px);
-}
-
-/* FEEDBACK DE ACERTO E ERRO */
-.correto {
-    background-color: #4caf50 !important; /* Verde quando acerta */
-    color: white !important;
-    border-color: #2e7d32 !important;
-}
-
-.errado {
-    background-color: #e53935 !important; /* Vermelho quando erra */
-    color: white !important;
-    border-color: #b71c1c !important;
-}
-
-.resultado-tela {
-    display: none;
-}
-
-/* BOTÃO JOGAR NOVAMENTE */
-.btn-reiniciar {
-    background-color: #2e7d32;
-    color: white;
-    border: none;
-    padding: 12px 25px;
-    font-size: 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    margin-top: 15px;
-    transition: background 0.2s;
-}
-
-.btn-reiniciar:hover {
-    background-color: #1b5e20;
-}
+    border: 2px solid #c8e
