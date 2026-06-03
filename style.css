@@ -1,121 +1,108 @@
-/* Configurações Gerais */
+/* CONFIGURAÇÕES GERAIS */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Arial', sans-serif;
 }
 
 body {
-    background-color: #f4f9f4;
-    color: #333;
-}
-
-/* Cabeçalho */
-header {
-    background-color: #2e7d32;
-    color: white;
-    padding: 20px;
+    background-color: #e8f5e9;
+    color: #2e7d32;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
+    min-height: 100vh;
+    padding: 20px;
 }
 
-header .logo {
-    font-size: 24px;
-    font-weight: bold;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    margin-left: 20px;
-    font-weight: 500;
-}
-
-nav a:hover {
-    text-decoration: underline;
-}
-
-/* Banner Principal */
-.hero {
+header {
     text-align: center;
-    padding: 60px 20px;
-    background: linear-gradient(rgba(46, 125, 50, 0.1), rgba(46, 125, 50, 0.2));
+    margin-bottom: 30px;
 }
 
-.hero h1 {
+header h1 {
+    font-size: 2.5rem;
     color: #1b5e20;
     margin-bottom: 10px;
 }
 
-/* Seção do Jogo */
-.game-container {
-    max-width: 600px;
-    margin: 40px auto;
-    background: white;
+header p {
+    font-size: 1.1rem;
+    color: #4caf50;
+}
+
+/* CAIXA DO JOGO */
+.container {
+    background-color: white;
+    border-radius: 15px;
     padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    width: 100%;
+    max-width: 550px;
     text-align: center;
+    border: 3px solid #a5d6a7;
 }
 
-.game-container h2 {
+h2 {
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+}
+
+/* BOTÕES DE OPÇÕES */
+.opcoes-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.btn-opcao {
+    background-color: #f1f8e9;
+    border: 2px solid #81c784;
     color: #2e7d32;
-    margin-bottom: 20px;
-}
-
-#quiz-box {
-    margin-top: 20px;
-}
-
-#question {
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 20px;
-}
-
-.btn-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-button {
-    background-color: #81c784;
-    color: #1b5e20;
-    border: 2px solid #4caf50;
-    padding: 12px;
-    font-size: 16px;
+    padding: 15px;
+    font-size: 1rem;
     font-weight: bold;
     border-radius: 8px;
     cursor: pointer;
-    transition: 0.2s;
+    transition: all 0.2s ease;
 }
 
-button:hover {
-    background-color: #4caf50;
-    color: white;
+.btn-opcao:hover {
+    background-color: #c8e6c9;
+    transform: scale(1.02);
 }
 
-#next-btn {
+/* FEEDBACK DE ACERTO E ERRO */
+.correto {
+    background-color: #4caf50 !important;
+    color: white !important;
+    border-color: #2e7d32 !important;
+}
+
+.errado {
+    background-color: #e53935 !important;
+    color: white !important;
+    border-color: #b71c1c !important;
+}
+
+.resultado-tela {
+    display: none;
+}
+
+/* BOTÃO JOGAR NOVAMENTE */
+.btn-reiniciar {
     background-color: #2e7d32;
     color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 15px;
 }
 
-/* Utilitários */
-.hide {
-    display: none !important;
-}
-
-/* Rodapé */
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #333;
-    color: white;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
+.btn-reiniciar:hover {
+    background-color: #1b5e20
