@@ -42,7 +42,7 @@ function mostrarPergunta() {
     document.getElementById("pergunta-texto").innerText = perguntaAtual.pergunta;
     
     const caixaOpcoes = document.getElementById("caixa-opcoes");
-    caixaOpcoes.innerHTML = ""; // Limpa as opções anteriores
+    caixaOpcoes.innerHTML = ""; // Limpa os botões da pergunta anterior
 
     perguntaAtual.alternativas.forEach(alt => {
         const botao = document.createElement("button");
@@ -54,7 +54,7 @@ function mostrarPergunta() {
 }
 
 function verificarResposta(botaoSelecionado, eCorreta) {
-    // Bloqueia outros cliques enquanto carrega a próxima
+    // Bloqueia outros cliques para o usuário não clicar em mais de uma opção
     const botoes = document.querySelectorAll(".btn-opcao");
     botoes.forEach(b => b.disabled = true);
 
@@ -63,7 +63,7 @@ function verificarResposta(botaoSelecionado, eCorreta) {
         pontos++;
     } else {
         botaoSelecionado.classList.add("errado");
-        // Destaca a alternativa correta em verde para o aluno aprender
+        // Mostra qual era a alternativa certa pintando-a de verde
         botoes.forEach(b => {
             const perguntaAtual = perguntas[indiceAtual];
             perguntaAtual.alternativas.forEach(alt => {
@@ -74,7 +74,7 @@ function verificarResposta(botaoSelecionado, eCorreta) {
         });
     }
 
-    // Aguarda 1,5 segundos e avança
+    // Espera 1,5 segundos (para dar tempo de ver a resposta) e passa para a próxima
     setTimeout(() => {
         indiceAtual++;
         if (indiceAtual < perguntas.length) {
@@ -97,5 +97,5 @@ function reiniciarJogo() {
     iniciarJogo();
 }
 
-// Inicia o sistema ao abrir a página
+// Inicia o jogo automaticamente assim que a página é carregada
 window.onload = iniciarJogo;
