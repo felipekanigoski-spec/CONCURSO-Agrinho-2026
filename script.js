@@ -1,19 +1,33 @@
-// Objeto que guarda as informações das abas tecnológicas do Agrinho
-const infosAbas = {
-    drones: "Os drones sobrevoam as plantações tirando fotos de alta resolução. Com essas imagens, o agricultor descobre pontos exatos com pragas ou falta de água sem precisar andar por hectares de terra, aplicando remédios apenas onde é realmente necessário.",
-    ia: "A Inteligência Artificial cruza dados do clima, histórico do solo e previsões de tempo para dizer ao produtor qual é o melhor dia para plantar e colher, reduzindo riscos de perder a lavoura por secas ou tempestades.",
-    hidroponia: "As fazendas verticais utilizam técnicas como a hidroponia (plantio na água com nutrientes, sem solo) dentro de prédios urbanos. Isso permite cultivar alimentos frescos dentro das grandes cidades, economizando 95% de água."
+/* BANCO DE DADOS DO TERMINAL */
+const bancoDados = {
+    clima: {
+        titulo: "> SISTEMA DE CLIMA",
+        texto: "Sensores meteorológicos avançados conectados via satélite prevêem geadas e secas com semanas de antecedência. Isso permite que o produtor ajuste o calendário de plantio de forma cirúrgica, protegendo o alimento contra perdas climáticas severas."
+    },
+    maquinas: {
+        titulo: "> FROTA AUTÔNOMA",
+        texto: "Tratores e colheitadeiras sem motoristas já rodam os campos guiados por GPS de alta precisão milimétrica. Eles trabalham dia e noite sem parar, compactando menos o solo e reduzindo o consumo de combustível fóssil em até 25%."
+    },
+    biotech: {
+        titulo: "> BIOTECNOLOGIA APLICADA",
+        texto: "A ciência do campo desenvolve sementes mais fortes e naturais que resistem a climas extremos e pragas sem depender de excesso de defensivos químicos. O resultado é um alimento mais limpo, seguro e produtivo por hectare."
+    },
+    recursos: {
+        titulo: "> ECO_EFFICIÊNCIA ATIVA",
+        texto: "O reaproveitamento total de resíduos orgânicos transforma o que seria lixo em biofertilizantes e biogás, gerando energia limpa para abastecer as propriedades rurais e zerando a pegada de carbono do ecossistema agrícola."
+    }
 };
 
-// Função que realiza a troca de abas de forma dinâmica
-function mudarAba(botaoClicado, chaveInfo) {
-    // Localiza todas as abas e remove a cor de destaque (classe 'ativa')
-    const botoes = document.querySelectorAll('.btn-aba');
-    botoes.forEach(b => b.classList.remove('ativa'));
+/* FUNÇÃO DE INTERAÇÃO DO PAINEL */
+function ativarModulo(elementoClicado, chaveDados) {
+    // Localiza e desativa o destaque visual de todos os módulos
+    const modulos = document.querySelectorAll('.modulo-card');
+    modulos.forEach(mod => mod.classList.remove('ativo'));
 
-    // Adiciona a cor de destaque apenas no botão que acabou de ser clicado
-    botaoClicado.classList.add('ativa');
+    // Ativa o visual apenas no módulo clicado
+    elementoClicado.classList.add('ativo');
 
-    // Altera o texto exibido na tela de acordo com a chave escolhida
-    document.getElementById('texto-aba').innerText = infosAbas[chaveInfo];
+    // Atualiza as informações do monitor de dados na tela
+    document.getElementById('print-titulo').innerText = bancoDados[chaveDados].titulo;
+    document.getElementById('print-texto').innerText = bancoDados[chaveDados].texto;
 }
