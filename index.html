@@ -1,122 +1,375 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agrinho 2026 | Paraná Tech</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agrinho 2026 - Agricultura Sustentável</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+background:linear-gradient(to bottom,#020617,#071329,#0f172a);
+color:white;
+overflow-x:hidden;
+}
+
+header{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+position:relative;
+}
+
+.stars{
+position:fixed;
+width:100%;
+height:100%;
+top:0;
+left:0;
+z-index:-1;
+background-image:
+radial-gradient(white 1px, transparent 1px);
+background-size:40px 40px;
+animation:moveStars 30s linear infinite;
+}
+
+@keyframes moveStars{
+from{transform:translateY(0);}
+to{transform:translateY(100px);}
+}
+
+h1{
+font-size:4rem;
+background:linear-gradient(90deg,#00ffcc,#00ffff,#4ade80);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.subtitle{
+font-size:1.4rem;
+margin-top:20px;
+max-width:800px;
+}
+
+section{
+padding:80px 10%;
+}
+
+.card{
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(10px);
+padding:30px;
+margin-top:20px;
+border-radius:20px;
+border:1px solid rgba(255,255,255,0.1);
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+box-shadow:0 0 20px #00ffcc55;
+}
+
+h2{
+color:#00ffcc;
+margin-bottom:20px;
+}
+
+.features{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.feature{
+padding:25px;
+border-radius:15px;
+background:rgba(0,255,200,0.08);
+}
+
+footer{
+text-align:center;
+padding:30px;
+background:#01040c;
+}
+
+#gameSection{
+text-align:center;
+}
+
+canvas{
+background:#08111f;
+border:3px solid #00ffcc;
+border-radius:15px;
+margin-top:20px;
+max-width:100%;
+}
+
+button{
+padding:12px 25px;
+border:none;
+background:#00ffcc;
+font-size:18px;
+font-weight:bold;
+border-radius:10px;
+cursor:pointer;
+margin-top:15px;
+}
+
+button:hover{
+background:#4ade80;
+}
+</style>
 </head>
 <body>
 
-    <header>
-        <div class="logo-container">
-            <img class="logo-pr" src="https://www.historiasereconhecimento.com.br/arquivos/fck/image/Logo_Governo-do-Parana_Sustentavel_01.png" alt="Logo Paraná">
-            <div class="logo-texto">AGRINHO <span>2026</span></div>
-        </div>
-        <nav>
-            <button class="nav-btn active" onclick="rolarPara('inicio')">Início</button>
-            <button class="nav-btn" onclick="rolarPara('sobre')">O Concurso</button>
-            <button class="nav-btn" onclick="rolarPara('tecnologia')">Inovação</button>
-            <button class="nav-btn" onclick="rolarPara('inscricao')">Inscrição</button>
-        </nav>
-    </header>
+<div class="stars"></div>
 
-    <section id="inicio" class="hero">
-        <div class="hero-content">
-            <h1>O Futuro do Campo é <span>Digital</span></h1>
-            <p>Concurso Agrinho Paraná 2026: Conectando o Ensino Médio à inovação sustentável e tecnológica no agronegócio.</p>
-            <button class="btn-neon" onclick="rolarPara('inscricao')">Participe Agora</button>
-        </div>
-    </section>
+<header>
+<h1>🌎🚀 AGRINHO 2026</h1>
+<p class="subtitle">
+Agricultura Sustentável no Futuro: unindo tecnologia espacial,
+preservação ambiental e produção de alimentos para um planeta mais sustentável.
+</p>
+</header>
 
-    <section id="sobre" class="container">
-        <h2>Sobre o Concurso</h2>
-        
-        <div class="sobre-layout">
-            <div class="sobre-imagem">
-                <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80" alt="Estudantes e Inovação">
-            </div>
-            
-            <div class="tab-container">
-                <div class="tab-menu">
-                    <button class="tab-btn active" onclick="mudarAba(event, 'objetivo')">Objetivo</button>
-                    <button class="tab-btn" onclick="mudarAba(event, 'categorias')">Categorias</button>
-                    <button class="tab-btn" onclick="mudarAba(event, 'premios')">Prêmios</button>
-                </div>
-                
-                <div id="objetivo" class="tab-content active">
-                    <h3>Incentivando mentes brilhantes</h3>
-                    <p>O Agrinho 2026 busca integrar o conhecimento do Ensino Médio com a realidade do campo, estimulando projetos que tragam soluções sustentáveis, automação e eficiência para a agricultura paranaense.</p>
-                </div>
-                
-                <div id="categorias" class="tab-content">
-                    <h3>Onde você se encaixa?</h3>
-                    <p>Neste ano, as principais categorias para o Ensino Médio envolvem: Robótica Agrícola, Aplicativos de Gestão de Safra, Projetos de Sustentabilidade Ambiental e Relatórios de Pesquisa Científica.</p>
-                </div>
-                
-                <div id="premios" class="tab-content">
-                    <h3>Reconhecimento de Peso</h3>
-                    <p>Os melhores projetos do estado do Paraná serão premiados com notebooks de última geração, tablets, medalhas, além de bolsas de iniciação científica para os estudantes e projetores para as escolas dos professores orientadores!</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<section>
+<h2>🌱 O Futuro da Agricultura</h2>
 
-    <section id="tecnologia" class="bg-dark">
-        <div class="container">
-            <h2>Tecnologia no Agro</h2>
-            <div class="cards-grid">
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1508108712903-49b7ef9b1df8?auto=format&fit=crop&w=400&q=80" alt="Drone na Agricultura" class="card-img">
-                    <div class="card-body">
-                        <h3>Drones e IA</h3>
-                        <p>Mapeamento de solo e identificação de pragas em tempo real usando inteligência artificial computacional.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1516253593875-bd7ba052fbc5?auto=format&fit=crop&w=400&q=80" alt="Sensores e Código" class="card-img">
-                    <div class="card-body">
-                        <h3>Automação IoT</h3>
-                        <p>Sensores conectados que medem a umidade do solo e controlam a irrigação de forma 100% automatizada.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1473976377429-97f36ae8af0e?auto=format&fit=crop&w=400&q=80" alt="Plantação Sustentável" class="card-img">
-                    <div class="card-body">
-                        <h3>Energia Limpa</h3>
-                        <p>Uso de biomassa e energia solar fotovoltaica para mover as fazendas do futuro sem agredir o meio ambiente.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="card">
+A agricultura sustentável utiliza tecnologias inteligentes para produzir mais alimentos,
+economizando água, energia e reduzindo impactos ambientais.
+No futuro, drones, satélites e inteligência artificial ajudarão agricultores a cuidar das plantações com precisão.
+</div>
+</section>
 
-    <section id="inscricao" class="container">
-        <h2>Simulador de Inscrição</h2>
-        <p style="text-align: center; margin-bottom: 20px;">Preencha os dados abaixo para validar sua ideia de projeto.</p>
-        
-        <form id="form-agrinho" onsubmit="validarFormulario(event)">
-            <div class="form-group">
-                <label for="nome">Nome Completo:</label>
-                <input type="text" id="nome" required placeholder="Digite seu nome completo">
-            </div>
-            <div class="form-group">
-                <label for="escola">Sua Escola (Paraná):</label>
-                <input type="text" id="escola" required placeholder="Ex: Colégio Estadual...">
-            </div>
-            <div class="form-group">
-                <label for="projeto">Resumo da sua Ideia:</label>
-                <textarea id="projeto" rows="4" required placeholder="Conte brevemente o que seu projeto faz..."></textarea>
-            </div>
-            <button type="submit" class="btn-neon" style="width: 100%; border: none;">Enviar Projeto</button>
-        </form>
-        <div id="mensagem-sucesso" class="hidden"></div>
-    </section>
+<section>
+<h2>🛰️ Tecnologias Espaciais no Campo</h2>
 
-    <footer>
-        <p>&copy; 2026 Concurso Agrinho Paraná - Criado para a categoria Ensino Médio.</p>
-    </footer>
+<div class="features">
 
-    <script src="script.js"></script>
+<div class="feature">
+<h3>Satélites</h3>
+<p>Monitoram plantações e identificam áreas que precisam de cuidados.</p>
+</div>
+
+<div class="feature">
+<h3>Drones</h3>
+<p>Realizam inspeções rápidas e ajudam na aplicação eficiente de recursos.</p>
+</div>
+
+<div class="feature">
+<h3>IA Agrícola</h3>
+<p>Analisa dados para prever colheitas e reduzir desperdícios.</p>
+</div>
+
+<div class="feature">
+<h3>Energia Limpa</h3>
+<p>Painéis solares alimentam máquinas agrícolas de forma sustentável.</p>
+</div>
+
+</div>
+</section>
+
+<section>
+<h2>🌍 Sustentabilidade</h2>
+
+<div class="card">
+A preservação do solo, da água e da biodiversidade garante que as futuras gerações
+tenham recursos para produzir alimentos de forma responsável.
+Cada atitude sustentável contribui para um planeta melhor.
+</div>
+</section>
+
+<section id="gameSection">
+<h2>🎮 Missão Espacial Agrinho</h2>
+
+<p>
+Controle a nave agrícola e desvie dos obstáculos.
+Clique no botão ou pressione ESPAÇO.
+</p>
+
+<button onclick="startGame()">Iniciar Jogo</button>
+
+<br>
+
+<canvas id="gameCanvas" width="400" height="600"></canvas>
+
+<h3 id="score">Pontuação: 0</h3>
+
+</section>
+
+<footer>
+<p>Projeto Agrinho 2026 • Agricultura Sustentável 🚀🌱</p>
+</footer>
+
+<script>
+const canvas = document.getElementById("gameCanvas");
+const ctx = canvas.getContext("2d");
+
+let bird;
+let pipes;
+let score;
+let gameRunning = false;
+
+function resetGame(){
+bird = {
+x:80,
+y:250,
+radius:15,
+velocity:0
+};
+
+pipes = [];
+score = 0;
+document.getElementById("score").innerText =
+"Pontuação: 0";
+}
+
+function startGame(){
+resetGame();
+gameRunning = true;
+gameLoop();
+}
+
+function jump(){
+if(gameRunning){
+bird.velocity = -8;
+}
+}
+
+document.addEventListener("keydown", e=>{
+if(e.code==="Space"){
+jump();
+}
+});
+
+canvas.addEventListener("click", jump);
+
+function createPipe(){
+let gap = 170;
+
+let topHeight =
+Math.random()*250 + 50;
+
+pipes.push({
+x:canvas.width,
+top:topHeight,
+bottom:topHeight + gap,
+passed:false
+});
+}
+
+setInterval(()=>{
+if(gameRunning){
+createPipe();
+}
+},1800);
+
+function update(){
+
+bird.velocity += 0.5;
+bird.y += bird.velocity;
+
+if(bird.y > canvas.height ||
+bird.y < 0){
+gameRunning = false;
+}
+
+pipes.forEach(pipe=>{
+
+pipe.x -= 3;
+
+if(
+bird.x + bird.radius > pipe.x &&
+bird.x - bird.radius < pipe.x + 60 &&
+(
+bird.y - bird.radius < pipe.top ||
+bird.y + bird.radius > pipe.bottom
+)
+){
+gameRunning = false;
+}
+
+if(!pipe.passed && pipe.x < bird.x){
+pipe.passed = true;
+score++;
+document.getElementById("score").innerText =
+"Pontuação: " + score;
+}
+});
+
+pipes = pipes.filter(pipe => pipe.x > -60);
+}
+
+function draw(){
+
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+ctx.fillStyle="#00ffcc";
+
+ctx.beginPath();
+ctx.arc(
+bird.x,
+bird.y,
+bird.radius,
+0,
+Math.PI*2
+);
+ctx.fill();
+
+ctx.fillStyle="#4ade80";
+
+pipes.forEach(pipe=>{
+
+ctx.fillRect(
+pipe.x,
+0,
+60,
+pipe.top
+);
+
+ctx.fillRect(
+pipe.x,
+pipe.bottom,
+60,
+canvas.height
+);
+
+});
+}
+
+function gameLoop(){
+
+if(!gameRunning){
+
+ctx.fillStyle="white";
+ctx.font="30px Arial";
+ctx.fillText(
+"Fim de Jogo",
+110,
+300
+);
+
+return;
+}
+
+update();
+draw();
+
+requestAnimationFrame(gameLoop);
+}
+</script>
+
 </body>
 </html>
