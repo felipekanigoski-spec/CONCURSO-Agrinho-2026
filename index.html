@@ -3,348 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agrinho 2026 - Hub de Inovação Agrícola</title>
+    <title>Agrinho 2026 - Portal de Inovação</title>
     <style>
-        /* CONFIGURAÇÕES GERAIS - DARK TECH */
+        /* CONFIGURAÇÕES GERAIS */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            scroll-behavior: smooth;
         }
 
         body {
             background-color: #0c1115;
             color: #d1dad1;
-            padding-top: 70px;
+            padding-top: 80px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
-        /* BARRA DE NAVEGAÇÃO */
+        /* BARRA DE NAVEGAÇÃO / ABAS EXTERNAS */
         nav {
             background-color: #070a0c;
             border-bottom: 2px solid #00ff66;
-            padding: 15px 20px;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
             align-items: center;
+            padding: 0 40px;
+            height: 70px;
         }
 
-        nav .logo {
+        .logo {
             color: #00ff66;
             font-weight: bold;
             font-family: monospace;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
         }
 
-        nav .links a {
+        /* Estilo das Abas Superiores */
+        .abas-nav {
+            display: flex;
+            height: 100%;
+        }
+
+        .aba-link {
+            background: none;
+            border: none;
+            color: #8fa08f;
+            padding: 0 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            height: 100%;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+
+        .aba-link:hover {
             color: #ffffff;
-            text-decoration: none;
-            margin-left: 20px;
-            font-size: 0.95rem;
-            transition: color 0.3s;
+            background-color: rgba(255, 255, 255, 0.02);
         }
 
-        nav .links a:hover {
+        /* Aba que está aberta no momento */
+        .aba-link.ativa {
             color: #00ff66;
+            border-bottom: 3px solid #00ff66;
+            background-color: rgba(0, 255, 102, 0.04);
+            font-weight: bold;
         }
 
-        /* CONTAINER PRINCIPAL */
+        /* CONTAINER DAS PÁGINAS */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 40px 20px;
+            flex: 1;
+            width: 100%;
         }
 
-        /* CABEÇALHO DA SEÇÃO */
-        .secao-titulo {
-            text-align: center;
-            margin-bottom: 40px;
-            font-family: monospace;
+        /* CONTROLE DE EXIBIÇÃO DAS SEÇÕES */
+        .secao-conteudo {
+            display: none; /* Esconde todas as páginas por padrão */
+            animation: surgir 0.4s ease forwards;
         }
 
-        .secao-titulo h2 {
-            color: #00ff66;
+        .secao-conteudo.ativa {
+            display: block; /* Mostra apenas a página ativa */
+        }
+
+        @keyframes surgir {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* TITULOS */
+        .titulo-pagina {
+            margin-bottom: 35px;
+            border-left: 4px solid #00ff66;
+            padding-left: 15px;
+        }
+
+        .titulo-pagina h2 {
+            color: #ffffff;
             font-size: 2rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 8px;
+            letter-spacing: 1px;
         }
 
-        .secao-titulo p {
+        .titulo-pagina p {
             color: #8fa08f;
-            font-size: 1rem;
+            margin-top: 5px;
         }
 
-        /* 1. SEÇÃO: DIRETÓRIO DE IMAGENS INTERATIVAS (GALERIA) */
-        .galeria-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            margin-bottom: 70px;
-        }
-
-        .galeria-item {
-            background-color: #12181e;
-            border: 1px solid #23313a;
-            border-radius: 8px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .galeria-item:hover {
-            transform: scale(1.03);
-            border-color: #00ff66;
-            box-shadow: 0 5px 20px rgba(0, 255, 102, 0.15);
-        }
-
-        .galeria-img-box {
-            width: 100%;
-            height: 200px;
-            overflow: hidden;
-        }
-
-        .galeria-img-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .galeria-item:hover .galeria-img-box img {
-            transform: scale(1.1);
-        }
-
-        .galeria-info {
-            padding: 20px;
-        }
-
-        .galeria-info h3 {
-            color: #ffffff;
-            margin-bottom: 10px;
-            font-size: 1.2rem;
-        }
-
-        .galeria-info p {
-            color: #a3b2a3;
-            font-size: 0.9rem;
-            line-height: 1.5;
-        }
-
-        /* 2. SEÇÃO: DASHBOARD INTERATIVO EXPANDIDO */
-        .dashboard {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 25px;
-            background-color: #12181e;
-            border: 1px solid #23313a;
-            padding: 30px;
-            border-radius: 10px;
-            margin-bottom: 70px;
-        }
-
-        @media (max-width: 768px) {
-            .dashboard {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .lista-botoes {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .btn-painel {
-            background: #172027;
-            border: 1px solid #2d3f4b;
-            color: #ffffff;
-            padding: 15px;
-            border-radius: 6px;
-            cursor: pointer;
-            text-align: left;
-            font-weight: bold;
-            font-family: monospace;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: all 0.2s;
-        }
-
-        .btn-painel:hover {
-            border-color: #00ff66;
-            background: #1c2832;
-        }
-
-        .btn-painel.selecionado {
-            border-color: #00ff66;
-            background: rgba(0, 255, 102, 0.05);
-            color: #00ff66;
-        }
-
-        .led-indicador {
-            width: 10px;
-            height: 10px;
-            background-color: #3e5361;
-            border-radius: 50%;
-        }
-
-        .btn-painel.selecionado .led-indicador {
-            background-color: #00ff66;
-            box-shadow: 0 0 10px #00ff66;
-        }
-
-        .visor-monitor {
-            background-color: #070a0d;
-            border: 1px solid #23313a;
-            border-radius: 6px;
-            padding: 30px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .visor-header {
-            color: #00ff66;
-            font-family: monospace;
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-        }
-
-        .visor-corpo {
-            line-height: 1.7;
-            color: #cbd7cb;
-            margin-bottom: 20px;
-        }
-
-        /* Gráfico Simulado via CSS */
-        .grafico-caixa {
-            background-color: #12181e;
-            padding: 15px;
-            border-radius: 6px;
-            border: 1px solid #23313a;
-        }
-
-        .grafico-label {
-            font-size: 0.85rem;
-            color: #8fa08f;
-            margin-bottom: 8px;
-            font-family: monospace;
-        }
-
-        .barra-progresso {
-            background-color: #23313a;
-            height: 12px;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-
-        .barra-preenchida {
-            background: linear-gradient(90deg, #00ff66, #00ffaa);
-            height: 100%;
-            width: 92%; /* Controlado pelo JS */
-            transition: width 0.5s ease;
-        }
-
-        /* 3. SEÇÃO: CENTRAL DE RELATÓRIOS (METAS AGRINHO) */
-        .relatorios-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .relatorio-card {
-            background-color: #12181e;
-            border-top: 4px solid #00ff66;
-            padding: 25px;
-            border-radius: 0 0 8px 8px;
-        }
-
-        .relatorio-card h4 {
-            color: #ffffff;
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-        }
-
-        .relatorio-card p {
-            color: #a3b2a3;
-            font-size: 0.9rem;
-            line-height: 1.5;
-        }
-
-        /* RODAPÉ TERMINAL */
-        footer {
-            background-color: #070a0c;
-            border-top: 1px solid #23313a;
-            text-align: center;
-            padding: 30px;
-            margin-top: 50px;
-            font-family: monospace;
-            font-size: 0.85rem;
-            color: #5c7260;
-        }
-    </style>
-</head>
-<body>
-
-    <nav>
-        <div class="logo">> AGRO_SYSTEM_2026</div>
-        <div class="links">
-            <a href="#tecnologias">Tecnologias</a>
-            <a href="#monitoramento">Monitoramento</a>
-            <a href="#metas">Objetivos</a>
-        </div>
-    </nav>
-
-    <main class="container">
-
-        <section id="tecnologias">
-            <div class="secao-titulo">
-                <h2>Tecnologia Visual no Campo</h2>
-                <p>Explore as principais ferramentas visuais aplicadas no agronegócio moderno</p>
-            </div>
-
-            <div class="galeria-grid">
-                
-                <div class="galeria-item">
-                    <div class="galeria-img-box">
-                        <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=600&q=80" alt="Plantação inteligente">
-                    </div>
-                    <div class="galeria-info">
-                        <h3>Lavouras Inteligentes</h3>
-                        <p>Campos mapeados digitalmente que utilizam sensores subterrâneos para monitorar a saúde da raiz e do solo em tempo real.</p>
-                    </div>
-                </div>
-
-                <div class="galeria-item">
-                    <div class="galeria-img-box">
-                        <img src="https://images.unsplash.com/photo-1527525443983-6e60c75fff46?auto=format&fit=crop&w=600&q=80" alt="Tecnologia drone">
-                    </div>
-                    <div class="galeria-info">
-                        <h3>Drones de Alta Precisão</h3>
-                        <p>Equipamentos aéreos autônomos que realizam varreduras térmicas fotográficas para identificar pragas instantaneamente.</p>
-                    </div>
-                </div>
-
-                <div class="galeria-item">
-                    <div class="galeria-img-box">
-                        <img src="https://images.unsplash.com/photo-1530595467537-0b5996c41f2d?auto=format&fit=crop&w=600&q=80" alt="Hidroponia urbana">
-                    </div>
-                    <div class="galeria-info">
-                        <h3>Sistemas Hidropônicos</h3>
-                        <p>Cultivos modernos em estufas verticais automatizadas que economizam espaço urbano e reduzem o uso de solo.</p>
-                    </div>
-                </div>
-
-                <div class="galeria-item">
-                    <div class="galeria-img-box">
-                        <img src="https://images.unsplash.com/photo-1592417817098-8f3d6eb18865?auto=format&fit=crop&w=600&q=80" alt="Defesa biológica">
-                    </div>
-                    <div class="galeria-info">
-                        <h3>Manejo de Pragas</h3>
-                        <p>Laboratórios modernos aplicando bioinsumos e inimigos naturais no controle biológico de insetos invasores sem venenos químicos.</p>
-                    </div>
+        /* GRID DE IMAGENS (ABA
