@@ -1,17 +1,3 @@
-// Função para forçar a rolagem suave até a seção correta tirando a sobreposição do menu
-function rolarParaSeçao(idSeçao) {
-    const elemento = document.getElementById(idSeçao);
-    if (elemento) {
-        const alturaHeader = document.querySelector('header').offsetHeight;
-        const posicaoElemento = elemento.offsetTop;
-        
-        window.scrollTo({
-            top: posicaoElemento - alturaHeader,
-            behavior: 'smooth'
-        });
-    }
-}
-
 // 1. Sistema de Abas Interativas (Seção Sobre)
 function mudarAba(event, nomeAba) {
     const conteudos = document.getElementsByClassName("tab-content");
@@ -50,7 +36,7 @@ function validarFormulario(event) {
     }
 }
 
-// 3. Destacar o link do menu conforme rola a página
+// 3. Destacar o link do menu conforme rola a página de forma nativa e segura
 window.addEventListener('scroll', () => {
     const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('header nav a');
@@ -59,7 +45,6 @@ window.addEventListener('scroll', () => {
 
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
         const alturaHeader = document.querySelector('header').offsetHeight;
         
         if (window.pageYOffset >= (sectionTop - alturaHeader - 20)) {
@@ -69,10 +54,7 @@ window.addEventListener('scroll', () => {
 
     navLinks.forEach(link => {
         link.classList.remove('active');
-        // Se for a primeira seção, deixa o botão "Início" ativo por padrão
-        if (atual === 'inicio' && link.innerText === 'Início') {
-            link.classList.add('active');
-        } else if (link.getAttribute('onclick') && link.getAttribute('onclick').includes(atual)) {
+        if (link.getAttribute('href') === `#${atual}`) {
             link.classList.add('active');
         }
     });
