@@ -3,22 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Agrinho 2026 - Agricultura Sustentável</title>
+<title>Agrinho 2026 - Futuro Sustentável</title>
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Segoe UI',sans-serif;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
+body{background:#050816;color:#fff;overflow-x:hidden}
 
-body{
-background:linear-gradient(to bottom,#020617,#071329,#0f172a);
-color:white;
-overflow-x:hidden;
+/* fundo */
+.stars{
+position:fixed;inset:0;
+background:radial-gradient(#ffffff22 1px,transparent 1px);
+background-size:40px 40px;
+z-index:-1;
+animation:move 20s linear infinite;
 }
+@keyframes move{from{transform:translateY(0)}to{transform:translateY(100px)}}
 
+/* topo */
 header{
 height:100vh;
 display:flex;
@@ -27,348 +28,159 @@ justify-content:center;
 align-items:center;
 text-align:center;
 padding:20px;
-position:relative;
-}
-
-.stars{
-position:fixed;
-width:100%;
-height:100%;
-top:0;
-left:0;
-z-index:-1;
-background-image:
-radial-gradient(white 1px, transparent 1px);
-background-size:40px 40px;
-animation:moveStars 30s linear infinite;
-}
-
-@keyframes moveStars{
-from{transform:translateY(0);}
-to{transform:translateY(100px);}
 }
 
 h1{
-font-size:4rem;
-background:linear-gradient(90deg,#00ffcc,#00ffff,#4ade80);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-}
-
-.subtitle{
-font-size:1.4rem;
-margin-top:20px;
-max-width:800px;
-}
-
-section{
-padding:80px 10%;
-}
-
-.card{
-background:rgba(255,255,255,0.05);
-backdrop-filter:blur(10px);
-padding:30px;
-margin-top:20px;
-border-radius:20px;
-border:1px solid rgba(255,255,255,0.1);
-transition:.3s;
-}
-
-.card:hover{
-transform:translateY(-5px);
-box-shadow:0 0 20px #00ffcc55;
-}
-
-h2{
+font-size:3rem;
 color:#00ffcc;
-margin-bottom:20px;
+text-shadow:0 0 20px #00ffcc;
 }
 
-.features{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-}
+p{max-width:700px;margin-top:15px;opacity:.9}
 
-.feature{
-padding:25px;
-border-radius:15px;
-background:rgba(0,255,200,0.08);
-}
-
-footer{
-text-align:center;
-padding:30px;
-background:#01040c;
-}
-
-#gameSection{
-text-align:center;
-}
-
-canvas{
-background:#08111f;
-border:3px solid #00ffcc;
-border-radius:15px;
+.btn{
 margin-top:20px;
-max-width:100%;
-}
-
-button{
-padding:12px 25px;
-border:none;
+padding:12px 20px;
 background:#00ffcc;
-font-size:18px;
-font-weight:bold;
+border:none;
 border-radius:10px;
 cursor:pointer;
-margin-top:15px;
+font-weight:bold;
 }
 
-button:hover{
-background:#4ade80;
+/* seções */
+section{padding:70px 20px;text-align:center}
+
+.card{
+background:#0b1228;
+padding:20px;
+border-radius:15px;
+margin:10px auto;
+max-width:700px;
+box-shadow:0 0 15px #00ffcc22;
 }
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:15px;
+max-width:900px;
+margin:auto;
+}
+
+.box{
+background:#0b1228;
+padding:15px;
+border-radius:12px;
+}
+
+/* jogo */
+canvas{
+background:#000814;
+border:2px solid #00ffcc;
+margin-top:20px;
+border-radius:10px;
+}
+
 </style>
 </head>
+
 <body>
 
 <div class="stars"></div>
 
 <header>
-<h1>🌎🚀 AGRINHO 2026</h1>
-<p class="subtitle">
-Agricultura Sustentável no Futuro: unindo tecnologia espacial,
-preservação ambiental e produção de alimentos para um planeta mais sustentável.
-</p>
+<h1>🌱 Agrinho 2026</h1>
+<p>Agricultura sustentável com tecnologia, inovação e cuidado com o planeta.</p>
+<a href="#sobre"><button class="btn">Explorar</button></a>
 </header>
 
-<section>
-<h2>🌱 O Futuro da Agricultura</h2>
-
+<section id="sobre">
+<h2>🌍 Sobre</h2>
 <div class="card">
-A agricultura sustentável utiliza tecnologias inteligentes para produzir mais alimentos,
-economizando água, energia e reduzindo impactos ambientais.
-No futuro, drones, satélites e inteligência artificial ajudarão agricultores a cuidar das plantações com precisão.
+A agricultura sustentável usa tecnologia como drones e satélites para melhorar a produção e proteger o meio ambiente.
 </div>
 </section>
 
 <section>
-<h2>🛰️ Tecnologias Espaciais no Campo</h2>
-
-<div class="features">
-
-<div class="feature">
-<h3>Satélites</h3>
-<p>Monitoram plantações e identificam áreas que precisam de cuidados.</p>
-</div>
-
-<div class="feature">
-<h3>Drones</h3>
-<p>Realizam inspeções rápidas e ajudam na aplicação eficiente de recursos.</p>
-</div>
-
-<div class="feature">
-<h3>IA Agrícola</h3>
-<p>Analisa dados para prever colheitas e reduzir desperdícios.</p>
-</div>
-
-<div class="feature">
-<h3>Energia Limpa</h3>
-<p>Painéis solares alimentam máquinas agrícolas de forma sustentável.</p>
-</div>
-
+<h2>🚀 Tecnologias</h2>
+<div class="grid">
+<div class="box">🛰️ Satélites</div>
+<div class="box">🚁 Drones</div>
+<div class="box">🤖 IA no campo</div>
+<div class="box">☀️ Energia solar</div>
 </div>
 </section>
 
 <section>
-<h2>🌍 Sustentabilidade</h2>
-
-<div class="card">
-A preservação do solo, da água e da biodiversidade garante que as futuras gerações
-tenham recursos para produzir alimentos de forma responsável.
-Cada atitude sustentável contribui para um planeta melhor.
+<h2>📊 Benefícios</h2>
+<div class="grid">
+<div class="box">🌱 Mais produção</div>
+<div class="box">💧 Menos desperdício</div>
+<div class="box">🌎 Sustentabilidade</div>
 </div>
 </section>
 
-<section id="gameSection">
-<h2>🎮 Missão Espacial Agrinho</h2>
-
-<p>
-Controle a nave agrícola e desvie dos obstáculos.
-Clique no botão ou pressione ESPAÇO.
-</p>
-
-<button onclick="startGame()">Iniciar Jogo</button>
-
-<br>
-
-<canvas id="gameCanvas" width="400" height="600"></canvas>
-
-<h3 id="score">Pontuação: 0</h3>
-
+<section>
+<h2>🎮 Jogo Agrinho</h2>
+<p>Pressione ESPAÇO para jogar</p>
+<canvas id="game" width="300" height="500"></canvas>
+<p id="score">0</p>
 </section>
-
-<footer>
-<p>Projeto Agrinho 2026 • Agricultura Sustentável 🚀🌱</p>
-</footer>
 
 <script>
-const canvas = document.getElementById("gameCanvas");
-const ctx = canvas.getContext("2d");
+/* ===== JOGO FLAPPY SIMPLES ===== */
+const c=document.getElementById("game");
+const ctx=c.getContext("2d");
 
-let bird;
-let pipes;
-let score;
-let gameRunning = false;
+let bird={y:200,v:0};
+let pipes=[];
+let score=0;
+let game=true;
 
-function resetGame(){
-bird = {
-x:80,
-y:250,
-radius:15,
-velocity:0
-};
-
-pipes = [];
-score = 0;
-document.getElementById("score").innerText =
-"Pontuação: 0";
+function pipe(){
+pipes.push({x:300,h:Math.random()*200+50});
 }
 
-function startGame(){
-resetGame();
-gameRunning = true;
-gameLoop();
-}
+setInterval(()=>{if(game)pipe()},1500);
 
-function jump(){
-if(gameRunning){
-bird.velocity = -8;
-}
-}
-
-document.addEventListener("keydown", e=>{
-if(e.code==="Space"){
-jump();
-}
+document.addEventListener("keydown",e=>{
+if(e.code==="Space")bird.v=-6;
 });
 
-canvas.addEventListener("click", jump);
+function loop(){
+ctx.clearRect(0,0,300,500);
 
-function createPipe(){
-let gap = 170;
-
-let topHeight =
-Math.random()*250 + 50;
-
-pipes.push({
-x:canvas.width,
-top:topHeight,
-bottom:topHeight + gap,
-passed:false
-});
-}
-
-setInterval(()=>{
-if(gameRunning){
-createPipe();
-}
-},1800);
-
-function update(){
-
-bird.velocity += 0.5;
-bird.y += bird.velocity;
-
-if(bird.y > canvas.height ||
-bird.y < 0){
-gameRunning = false;
-}
-
-pipes.forEach(pipe=>{
-
-pipe.x -= 3;
-
-if(
-bird.x + bird.radius > pipe.x &&
-bird.x - bird.radius < pipe.x + 60 &&
-(
-bird.y - bird.radius < pipe.top ||
-bird.y + bird.radius > pipe.bottom
-)
-){
-gameRunning = false;
-}
-
-if(!pipe.passed && pipe.x < bird.x){
-pipe.passed = true;
-score++;
-document.getElementById("score").innerText =
-"Pontuação: " + score;
-}
-});
-
-pipes = pipes.filter(pipe => pipe.x > -60);
-}
-
-function draw(){
-
-ctx.clearRect(0,0,canvas.width,canvas.height);
+bird.v+=0.3;
+bird.y+=bird.v;
 
 ctx.fillStyle="#00ffcc";
+ctx.fillRect(50,bird.y,20,20);
 
-ctx.beginPath();
-ctx.arc(
-bird.x,
-bird.y,
-bird.radius,
-0,
-Math.PI*2
-);
-ctx.fill();
+pipes.forEach(p=>{
+p.x-=2;
 
 ctx.fillStyle="#4ade80";
+ctx.fillRect(p.x,0,40,p.h);
+ctx.fillRect(p.x,p.h+100,40,500);
 
-pipes.forEach(pipe=>{
+if(p.x===50)score++;
 
-ctx.fillRect(
-pipe.x,
-0,
-60,
-pipe.top
-);
-
-ctx.fillRect(
-pipe.x,
-pipe.bottom,
-60,
-canvas.height
-);
-
+if(
+50>p.x && 50<p.x+40 &&
+(bird.y<p.h || bird.y>p.h+100)
+){
+game=false;
+}
 });
+
+document.getElementById("score").innerText=score;
+
+if(game)requestAnimationFrame(loop);
+else ctx.fillText("Game Over",100,250);
 }
 
-function gameLoop(){
-
-if(!gameRunning){
-
-ctx.fillStyle="white";
-ctx.font="30px Arial";
-ctx.fillText(
-"Fim de Jogo",
-110,
-300
-);
-
-return;
-}
-
-update();
-draw();
-
-requestAnimationFrame(gameLoop);
-}
+loop();
 </script>
 
 </body>
