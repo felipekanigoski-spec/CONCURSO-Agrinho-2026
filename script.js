@@ -1,74 +1,287 @@
-// Função Definitiva de Rolagem Manual Baseada em Pixels
-function rolarPara(idSeçao) {
-    const alvo = document.getElementById(idSeçao);
-    if (alvo) {
-        const alturaHeader = document.querySelector('header').offsetHeight;
-        const posicaoAlvo = alvo.getBoundingClientRect().top + window.pageYOffset;
-        
-        window.scrollTo({
-            top: posicaoAlvo - alturaHeader,
-            behavior: 'smooth'
-        });
-    }
+/* ==========================
+   CONTADOR ANIMADO
+========================== */
+
+const counters = document.querySelectorAll(".number");
+
+const observer = new IntersectionObserver(entries => {
+
+entries.forEach(entry => {
+
+if(entry.isIntersecting){
+
+let target = +entry.target.dataset.target;
+let count = 0;
+
+let update = () => {
+
+let increment = target / 100;
+
+count += increment;
+
+if(count < target){
+
+entry.target.innerText =
+Math.floor(count);
+
+requestAnimationFrame(update);
+
+}else{
+
+entry.target.innerText = target;
 }
 
-// 1. Sistema de Abas Interativas (Seção Sobre)
-function mudarAba(event, nomeAba) {
-    const conteudos = document.getElementsByClassName("tab-content");
-    for (let i = 0; i < conteudos.length; i++) {
-        conteudos[i].classList.remove("active");
-    }
+};
 
-    const botoes = document.getElementsByClassName("tab-btn");
-    for (let i = 0; i < botoes.length; i++) {
-        botoes[i].classList.remove("active");
-    }
+update();
 
-    document.getElementById(nomeAba).classList.add("active");
-    event.currentTarget.classList.add("active");
+observer.unobserve(entry.target);
+
 }
 
-// 2. Validação e Envio do Formulário (Simulador de Inscrição)
-function validarFormulario(event) {
-    event.preventDefault();
-
-    const nome = document.getElementById("nome").value;
-    const escola = document.getElementById("escola").value;
-    const projeto = document.getElementById("projeto").value;
-    const caixaMensagem = document.getElementById("mensagem-sucesso");
-
-    if(nome && escola && projeto) {
-        caixaMensagem.innerHTML = `🚀 Sucesso! Olá ${nome}, seu projeto para o ${escola} foi pré-registrado com sucesso para o Agrinho 2026!`;
-        caixaMensagem.classList.remove("hidden");
-        
-        document.getElementById("form-agrinho").reset();
-        
-        setTimeout(() => {
-            caixaMensagem.classList.add("hidden");
-        }, 7000);
-    }
-}
-
-// 3. Gerenciamento Visual do Menu Conforme o Scroll da Página ocorre
-window.addEventListener('scroll', () => {
-    const sections = document.querySelectorAll('section');
-    const navButtons = document.querySelectorAll('.nav-btn');
-    let atual = 'inicio';
-
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const alturaHeader = document.querySelector('header').offsetHeight;
-        
-        if (window.pageYOffset >= (sectionTop - alturaHeader - 30)) {
-            atual = section.getAttribute('id');
-        }
-    });
-
-    navButtons.forEach(btn => {
-        btn.classList.remove('active');
-        // Identifica qual botão ativa com base na função onclick atribuída a ele
-        if (btn.getAttribute('onclick').includes(`'${atual}'`)) {
-            btn.classList.add('active');
-        }
-    });
 });
+
+});
+
+counters.forEach(counter=>{
+observer.observe(counter);
+});
+
+
+/* ==========================
+   FLAPPY SPACE AGRINHO
+========================== */
+
+const canvas =
+document.getElementById("gameCanvas");
+
+const ctx =
+canvas.getContext("2d");
+
+let bird;
+let pipes;
+let score;
+let bestScore = localStorage.getItem("recorde") || 0;
+let gameRunning = false;
+
+function resetGame(){
+
+bird = {
+x:80,
+y:250,
+radius:16,
+velocity:0
+};
+
+pipes = [];
+score = 0;
+
+document.getElementById("score").innerHTML =
+`Pontuação: ${score} | Recorde: ${bestScore}`;
+}
+
+function startGame(){
+
+resetGame();
+gameRunning = true;
+
+requestAnimationFrame(gameLoop);
+}
+
+function jump(){
+
+if(gameRunning){
+bird.velocity = -8;
+}
+
+}
+
+document.addEventListener("keydown", e=>{
+
+if(e.code === "Space"){
+jump();
+}
+
+});
+
+canvas.addEventListener("click", jump);
+
+function createPipe(){
+
+let gap = 180;
+
+let topHeight =
+Math.random() * 250 + 50;
+
+pipes.push({
+x:canvas.width,
+top:topHeight,
+bottom:topHeight + gap,
+passed:false
+});
+
+}
+
+setInterval(()=>{
+
+if(gameRunning){
+
+createPipe();
+
+}
+
+},1800);
+
+function update(){
+
+bird.velocity += 0.45;
+bird.y += bird.velocity;
+
+if(
+bird.y > canvas.height ||
+bird.y < 0
+){
+endGame();
+}
+
+pipes.forEach(pipe=>{
+
+pipe.x -= 4;
+
+if(
+
+bird.x + bird.radius > pipe.x &&
+bird.x - bird.radius < pipe.x + 60 &&
+
+(
+bird.y - bird.radius < pipe.top ||
+bird.y + bird.radius > pipe.bottom
+)
+
+){
+
+endGame();
+
+}
+
+if(
+!pipe.passed &&
+pipe.x < bird.x
+){
+
+pipe.passed = true;
+score++;
+
+if(score > bestScore){
+
+bestScore = score;
+localStorage.setItem(
+"recorde",
+bestScore
+);
+
+}
+
+document.getElementById("score").innerHTML =
+`Pontuação: ${score} | Recorde: ${bestScore}`;
+}
+
+});
+
+pipes =
+pipes.filter(pipe => pipe.x > -60);
+
+}
+
+function draw(){
+
+ctx.clearRect(
+0,
+0,
+canvas.width,
+canvas.height
+);
+
+/* Nave */
+
+ctx.fillStyle="#00ffcc";
+
+ctx.beginPath();
+
+ctx.arc(
+bird.x,
+bird.y,
+bird.radius,
+0,
+Math.PI*2
+);
+
+ctx.fill();
+
+/* Brilho */
+
+ctx.shadowColor="#00ffcc";
+ctx.shadowBlur=20;
+
+ctx.fill();
+
+/* Obstáculos */
+
+ctx.shadowBlur=0;
+ctx.fillStyle="#4ade80";
+
+pipes.forEach(pipe=>{
+
+ctx.fillRect(
+pipe.x,
+0,
+60,
+pipe.top
+);
+
+ctx.fillRect(
+pipe.x,
+pipe.bottom,
+60,
+canvas.height
+);
+
+});
+
+}
+
+function endGame(){
+
+gameRunning = false;
+
+ctx.fillStyle="white";
+ctx.font="32px Arial";
+
+ctx.fillText(
+"Fim de Jogo",
+105,
+280
+);
+
+ctx.font="20px Arial";
+
+ctx.fillText(
+"Clique em Iniciar",
+110,
+320
+);
+
+}
+
+function gameLoop(){
+
+if(!gameRunning){
+return;
+}
+
+update();
+draw();
+
+requestAnimationFrame(gameLoop);
+
+}
