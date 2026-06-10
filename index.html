@@ -3,18 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agrinho 2026 | Agro Forte e Sustentável</title>
+    <title>Agrinho 2026 | Paraná Tech</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
-        <div class="container header-flex">
-            <div class="logo">
-                <h1>Agrinho <span>2026</span></h1>
+        <div class="logo">AGRINHO <span>2026</span></div>
+        <nav>
+            <a href="#inicio" class="active">Início</a>
+            <a href="#sobre">O Concurso</a>
+            <a href="#tecnologia">Inovação</a>
+            <a href="#inscricao">Inscrição</a>
+        </nav>
+    </header>
+
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>O Futuro do Campo é <span>Digital</span></h1>
+            <p>Concurso Agrinho Paraná 2026: Conectando o Ensino Médio à inovação sustentável e tecnológica no agronegócio.</p>
+            <a href="#inscricao" class="btn-neon">Participe Agora</a>
+        </div>
+    </section>
+
+    <section id="sobre" class="container">
+        <h2>Sobre o Concurso</h2>
+        <div class="tab-container">
+            <div class="tab-menu">
+                <button class="tab-btn active" onclick="mudarAba(event, 'objetivo')">Objetivo</button>
+                <button class="tab-btn" onclick="mudarAba(event, 'categorias')">Categorias</button>
+                <button class="tab-btn" onclick="mudarAba(event, 'premios')">Prêmios</button>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="#inicio">Início</a></li>
-                    <li><a href="#sobre">O Tema</a></li>
-                    <li><a href="#pilares">Pilares</a></li>
+            
+            <div id="objetivo" class="tab-content active">
+                <h3>Incentivando mentes brilhantes</h3>
+                <p>O Agrinho 2026 busca integrar o conhecimento do Ensino Médio com a realidade do campo, estimulando projetos que tragam soluções sustentáveis, automação e eficiência para a agricultura paranaense.</p>
+            </div>
+            
+            <div id="categorias" class="tab-content">
+                <h3>Onde você se encaixa?</h3>
+                <p>Neste ano, as principais categorias para o Ensino Médio envolvem: Robótica Agrícola, Aplicativos de Gestão de Safra, Projetos de Sustentabilidade Ambiental e Relatórios de Pesquisa Científica.</p>
+            </div>
+            
+            <div id="premios" class="tab-content">
+                <h3>Reconhecimento de Peso</h3>
+                <p>Os melhores projetos do estado do Paraná serão premiados com notebooks de última geração, tablets, medalhas, além de bolsas de iniciação científica para os estudantes e projetores para as escolas dos professores orientadores!</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="tecnologia" class="bg-dark">
+        <div class="container">
+            <h2>Tecnologia no Agro</h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <h3>Drones e IA</h3>
+                    <p>Mapeamento de solo e identificação de pragas em tempo real usando inteligência
