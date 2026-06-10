@@ -1,287 +1,63 @@
-/* ==========================
-   CONTADOR ANIMADO
-========================== */
+const c = document.getElementById("game");
+const ctx = c.getContext("2d");
 
-const counters = document.querySelectorAll(".number");
-
-const observer = new IntersectionObserver(entries => {
-
-entries.forEach(entry => {
-
-if(entry.isIntersecting){
-
-let target = +entry.target.dataset.target;
-let count = 0;
-
-let update = () => {
-
-let increment = target / 100;
-
-count += increment;
-
-if(count < target){
-
-entry.target.innerText =
-Math.floor(count);
-
-requestAnimationFrame(update);
-
-}else{
-
-entry.target.innerText = target;
-}
-
-};
-
-update();
-
-observer.unobserve(entry.target);
-
-}
-
-});
-
-});
-
-counters.forEach(counter=>{
-observer.observe(counter);
-});
-
-
-/* ==========================
-   FLAPPY SPACE AGRINHO
-========================== */
-
-const canvas =
-document.getElementById("gameCanvas");
-
-const ctx =
-canvas.getContext("2d");
-
-let bird;
-let pipes;
-let score;
-let bestScore = localStorage.getItem("recorde") || 0;
-let gameRunning = false;
-
-function resetGame(){
-
-bird = {
-x:80,
-y:250,
-radius:16,
-velocity:0
-};
-
-pipes = [];
-score = 0;
-
-document.getElementById("score").innerHTML =
-`Pontuação: ${score} | Recorde: ${bestScore}`;
-}
-
-function startGame(){
-
-resetGame();
-gameRunning = true;
-
-requestAnimationFrame(gameLoop);
-}
-
-function jump(){
-
-if(gameRunning){
-bird.velocity = -8;
-}
-
-}
-
-document.addEventListener("keydown", e=>{
-
-if(e.code === "Space"){
-jump();
-}
-
-});
-
-canvas.addEventListener("click", jump);
+let bird = { y: 200, v: 0 };
+let pipes = [];
+let score = 0;
+let game = true;
 
 function createPipe(){
-
-let gap = 180;
-
-let topHeight =
-Math.random() * 250 + 50;
-
-pipes.push({
-x:canvas.width,
-top:topHeight,
-bottom:topHeight + gap,
-passed:false
-});
-
+pipes.push({ x: 300, h: Math.random()*200+50 });
 }
 
 setInterval(()=>{
+if(game) createPipe();
+},1500);
 
-if(gameRunning){
-
-createPipe();
-
+document.addEventListener("keydown", e=>{
+if(e.code === "Space"){
+bird.v = -6;
 }
-
-},1800);
-
-function update(){
-
-bird.velocity += 0.45;
-bird.y += bird.velocity;
-
-if(
-bird.y > canvas.height ||
-bird.y < 0
-){
-endGame();
-}
-
-pipes.forEach(pipe=>{
-
-pipe.x -= 4;
-
-if(
-
-bird.x + bird.radius > pipe.x &&
-bird.x - bird.radius < pipe.x + 60 &&
-
-(
-bird.y - bird.radius < pipe.top ||
-bird.y + bird.radius > pipe.bottom
-)
-
-){
-
-endGame();
-
-}
-
-if(
-!pipe.passed &&
-pipe.x < bird.x
-){
-
-pipe.passed = true;
-score++;
-
-if(score > bestScore){
-
-bestScore = score;
-localStorage.setItem(
-"recorde",
-bestScore
-);
-
-}
-
-document.getElementById("score").innerHTML =
-`Pontuação: ${score} | Recorde: ${bestScore}`;
-}
-
 });
 
-pipes =
-pipes.filter(pipe => pipe.x > -60);
+function loop(){
 
-}
+ctx.clearRect(0,0,300,500);
 
-function draw(){
+/* gravidade */
+bird.v += 0.3;
+bird.y += bird.v;
 
-ctx.clearRect(
-0,
-0,
-canvas.width,
-canvas.height
-);
-
-/* Nave */
-
+/* jogador */
 ctx.fillStyle="#00ffcc";
+ctx.fillRect(50,bird.y,20,20);
 
-ctx.beginPath();
+/* tubos */
+pipes.forEach(p=>{
+p.x -= 2;
 
-ctx.arc(
-bird.x,
-bird.y,
-bird.radius,
-0,
-Math.PI*2
-);
-
-ctx.fill();
-
-/* Brilho */
-
-ctx.shadowColor="#00ffcc";
-ctx.shadowBlur=20;
-
-ctx.fill();
-
-/* Obstáculos */
-
-ctx.shadowBlur=0;
 ctx.fillStyle="#4ade80";
+ctx.fillRect(p.x,0,40,p.h);
+ctx.fillRect(p.x,p.h+100,40,500);
 
-pipes.forEach(pipe=>{
+/* pontuação */
+if(p.x === 50) score++;
 
-ctx.fillRect(
-pipe.x,
-0,
-60,
-pipe.top
-);
-
-ctx.fillRect(
-pipe.x,
-pipe.bottom,
-60,
-canvas.height
-);
-
+/* colisão */
+if(
+50 > p.x && 50 < p.x+40 &&
+(bird.y < p.h || bird.y > p.h+100)
+){
+game = false;
+}
 });
 
+/* score */
+document.getElementById("score").innerText = score;
+
+/* loop */
+if(game) requestAnimationFrame(loop);
+else ctx.fillText("Game Over",100,250);
 }
 
-function endGame(){
-
-gameRunning = false;
-
-ctx.fillStyle="white";
-ctx.font="32px Arial";
-
-ctx.fillText(
-"Fim de Jogo",
-105,
-280
-);
-
-ctx.font="20px Arial";
-
-ctx.fillText(
-"Clique em Iniciar",
-110,
-320
-);
-
-}
-
-function gameLoop(){
-
-if(!gameRunning){
-return;
-}
-
-update();
-draw();
-
-requestAnimationFrame(gameLoop);
-
-}
+loop();
