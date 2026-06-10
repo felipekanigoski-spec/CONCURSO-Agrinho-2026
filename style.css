@@ -1,4 +1,10 @@
 /* Configurações Gerais e Reset */
+html {
+    scroll-behavior: smooth;
+    /* Evita que o menu fixo cubra o título das seções ao rolar */
+    scroll-padding-top: 90px; 
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -104,6 +110,7 @@ header nav a:hover, header nav a.active {
     box-shadow: 0 0 15px #00ff66;
     transition: 0.3s ease;
     cursor: pointer;
+    text-align: center;
 }
 
 .btn-neon:hover {
@@ -165,4 +172,92 @@ header nav a:hover, header nav a.active {
 
 .cards-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, min
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: #111a16;
+    border-left: 4px solid #00ff66;
+    padding: 25px;
+    border-radius: 4px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0, 255, 102, 0.2);
+}
+
+.card h3 {
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+/* Formulário de Inscrição */
+form {
+    background: #111a16;
+    padding: 40px;
+    border-radius: 8px;
+    border: 1px solid #222;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    background: #0a0f0d;
+    border: 1px solid #333;
+    color: #fff;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    border-color: #00ff66;
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 255, 102, 0.5);
+}
+
+/* Mensagem de Sucesso */
+#mensagem-sucesso {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(0, 255, 102, 0.2);
+    border: 1px solid #00ff66;
+    color: #00ff66;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 30px;
+    background: #050807;
+    border-top: 1px solid #111;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Animação */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
