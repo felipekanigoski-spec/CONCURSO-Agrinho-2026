@@ -1,3 +1,17 @@
+// Função Definitiva de Rolagem Manual Baseada em Pixels
+function rolarPara(idSeçao) {
+    const alvo = document.getElementById(idSeçao);
+    if (alvo) {
+        const alturaHeader = document.querySelector('header').offsetHeight;
+        const posicaoAlvo = alvo.getBoundingClientRect().top + window.pageYOffset;
+        
+        window.scrollTo({
+            top: posicaoAlvo - alturaHeader,
+            behavior: 'smooth'
+        });
+    }
+}
+
 // 1. Sistema de Abas Interativas (Seção Sobre)
 function mudarAba(event, nomeAba) {
     const conteudos = document.getElementsByClassName("tab-content");
@@ -29,33 +43,32 @@ function validarFormulario(event) {
         
         document.getElementById("form-agrinho").reset();
         
-        // Mantém o aviso na tela e esconde depois de 7 segundos
         setTimeout(() => {
             caixaMensagem.classList.add("hidden");
         }, 7000);
     }
 }
 
-// 3. Destacar o link do menu conforme rola a página de forma nativa e segura
+// 3. Gerenciamento Visual do Menu Conforme o Scroll da Página ocorre
 window.addEventListener('scroll', () => {
     const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('header nav a');
-    
-    let atual = '';
+    const navButtons = document.querySelectorAll('.nav-btn');
+    let atual = 'inicio';
 
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
         const alturaHeader = document.querySelector('header').offsetHeight;
         
-        if (window.pageYOffset >= (sectionTop - alturaHeader - 20)) {
+        if (window.pageYOffset >= (sectionTop - alturaHeader - 30)) {
             atual = section.getAttribute('id');
         }
     });
 
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${atual}`) {
-            link.classList.add('active');
+    navButtons.forEach(btn => {
+        btn.classList.remove('active');
+        // Identifica qual botão ativa com base na função onclick atribuída a ele
+        if (btn.getAttribute('onclick').includes(`'${atual}'`)) {
+            btn.classList.add('active');
         }
     });
 });
