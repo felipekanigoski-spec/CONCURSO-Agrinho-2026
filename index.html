@@ -3,119 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agrinho 2026 - Portal de Inovação</title>
-    <style>
-        /* CONFIGURAÇÕES GERAIS */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+    <title>Agrinho 2026 | Agro Forte e Sustentável</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-        body {
-            background-color: #0c1115;
-            color: #d1dad1;
-            padding-top: 80px;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        /* BARRA DE NAVEGAÇÃO / ABAS EXTERNAS */
-        nav {
-            background-color: #070a0c;
-            border-bottom: 2px solid #00ff66;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 40px;
-            height: 70px;
-        }
-
-        .logo {
-            color: #00ff66;
-            font-weight: bold;
-            font-family: monospace;
-            font-size: 1.3rem;
-        }
-
-        /* Estilo das Abas Superiores */
-        .abas-nav {
-            display: flex;
-            height: 100%;
-        }
-
-        .aba-link {
-            background: none;
-            border: none;
-            color: #8fa08f;
-            padding: 0 25px;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: 500;
-            height: 100%;
-            transition: all 0.3s ease;
-            border-bottom: 3px solid transparent;
-        }
-
-        .aba-link:hover {
-            color: #ffffff;
-            background-color: rgba(255, 255, 255, 0.02);
-        }
-
-        /* Aba que está aberta no momento */
-        .aba-link.ativa {
-            color: #00ff66;
-            border-bottom: 3px solid #00ff66;
-            background-color: rgba(0, 255, 102, 0.04);
-            font-weight: bold;
-        }
-
-        /* CONTAINER DAS PÁGINAS */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            flex: 1;
-            width: 100%;
-        }
-
-        /* CONTROLE DE EXIBIÇÃO DAS SEÇÕES */
-        .secao-conteudo {
-            display: none; /* Esconde todas as páginas por padrão */
-            animation: surgir 0.4s ease forwards;
-        }
-
-        .secao-conteudo.ativa {
-            display: block; /* Mostra apenas a página ativa */
-        }
-
-        @keyframes surgir {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* TITULOS */
-        .titulo-pagina {
-            margin-bottom: 35px;
-            border-left: 4px solid #00ff66;
-            padding-left: 15px;
-        }
-
-        .titulo-pagina h2 {
-            color: #ffffff;
-            font-size: 2rem;
-            letter-spacing: 1px;
-        }
-
-        .titulo-pagina p {
-            color: #8fa08f;
-            margin-top: 5px;
-        }
-
-        /* GRID DE IMAGENS (ABA
+    <header>
+        <div class="container header-flex">
+            <div class="logo">
+                <h1>Agrinho <span>2026</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#sobre">O Tema</a></li>
+                    <li><a href="#pilares">Pilares</a></li>
