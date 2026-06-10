@@ -9,7 +9,10 @@
 <body>
 
     <header>
-        <div class="logo">AGRINHO <span>2026</span></div>
+        <div class="logo-container">
+            <img class="logo-pr" src="https://www.historiasereconhecimento.com.br/arquivos/fck/image/Logo_Governo-do-Parana_Sustentavel_01.png" alt="Logo Paraná">
+            <div class="logo-texto">AGRINHO <span>2026</span></div>
+        </div>
         <nav>
             <button class="nav-btn active" onclick="rolarPara('inicio')">Início</button>
             <button class="nav-btn" onclick="rolarPara('sobre')">O Concurso</button>
@@ -28,26 +31,33 @@
 
     <section id="sobre" class="container">
         <h2>Sobre o Concurso</h2>
-        <div class="tab-container">
-            <div class="tab-menu">
-                <button class="tab-btn active" onclick="mudarAba(event, 'objetivo')">Objetivo</button>
-                <button class="tab-btn" onclick="mudarAba(event, 'categorias')">Categorias</button>
-                <button class="tab-btn" onclick="mudarAba(event, 'premios')">Prêmios</button>
+        
+        <div class="sobre-layout">
+            <div class="sobre-imagem">
+                <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80" alt="Estudantes e Inovação">
             </div>
             
-            <div id="objetivo" class="tab-content active">
-                <h3>Incentivando mentes brilhantes</h3>
-                <p>O Agrinho 2026 busca integrar o conhecimento do Ensino Médio com a realidade do campo, estimulando projetos que tragam soluções sustentáveis, automação e eficiência para a agricultura paranaense.</p>
-            </div>
-            
-            <div id="categorias" class="tab-content">
-                <h3>Onde você se encaixa?</h3>
-                <p>Neste ano, as principais categorias para o Ensino Médio envolvem: Robótica Agrícola, Aplicativos de Gestão de Safra, Projetos de Sustentabilidade Ambiental e Relatórios de Pesquisa Científica.</p>
-            </div>
-            
-            <div id="premios" class="tab-content">
-                <h3>Reconhecimento de Peso</h3>
-                <p>Os melhores projetos do estado do Paraná serão premiados com notebooks de última geração, tablets, medalhas, além de bolsas de iniciação científica para os estudantes e projetores para as escolas dos professores orientadores!</p>
+            <div class="tab-container">
+                <div class="tab-menu">
+                    <button class="tab-btn active" onclick="mudarAba(event, 'objetivo')">Objetivo</button>
+                    <button class="tab-btn" onclick="mudarAba(event, 'categorias')">Categorias</button>
+                    <button class="tab-btn" onclick="mudarAba(event, 'premios')">Prêmios</button>
+                </div>
+                
+                <div id="objetivo" class="tab-content active">
+                    <h3>Incentivando mentes brilhantes</h3>
+                    <p>O Agrinho 2026 busca integrar o conhecimento do Ensino Médio com a realidade do campo, estimulando projetos que tragam soluções sustentáveis, automação e eficiência para a agricultura paranaense.</p>
+                </div>
+                
+                <div id="categorias" class="tab-content">
+                    <h3>Onde você se encaixa?</h3>
+                    <p>Neste ano, as principais categorias para o Ensino Médio envolvem: Robótica Agrícola, Aplicativos de Gestão de Safra, Projetos de Sustentabilidade Ambiental e Relatórios de Pesquisa Científica.</p>
+                </div>
+                
+                <div id="premios" class="tab-content">
+                    <h3>Reconhecimento de Peso</h3>
+                    <p>Os melhores projetos do estado do Paraná serão premiados com notebooks de última geração, tablets, medalhas, além de bolsas de iniciação científica para os estudantes e projetores para as escolas dos professores orientadores!</p>
+                </div>
             </div>
         </div>
     </section>
@@ -57,16 +67,25 @@
             <h2>Tecnologia no Agro</h2>
             <div class="cards-grid">
                 <div class="card">
-                    <h3>Drones e IA</h3>
-                    <p>Mapeamento de solo e identificação de pragas em tempo real usando inteligência artificial computacional.</p>
+                    <img src="https://images.unsplash.com/photo-1508108712903-49b7ef9b1df8?auto=format&fit=crop&w=400&q=80" alt="Drone na Agricultura" class="card-img">
+                    <div class="card-body">
+                        <h3>Drones e IA</h3>
+                        <p>Mapeamento de solo e identificação de pragas em tempo real usando inteligência artificial computacional.</p>
+                    </div>
                 </div>
                 <div class="card">
-                    <h3>Automação IoT</h3>
-                    <p>Sensores conectados que medem a umidade do solo e controlam a irrigação de forma 100% automatizada.</p>
+                    <img src="https://images.unsplash.com/photo-1516253593875-bd7ba052fbc5?auto=format&fit=crop&w=400&q=80" alt="Sensores e Código" class="card-img">
+                    <div class="card-body">
+                        <h3>Automação IoT</h3>
+                        <p>Sensores conectados que medem a umidade do solo e controlam a irrigação de forma 100% automatizada.</p>
+                    </div>
                 </div>
                 <div class="card">
-                    <h3>Energia Limpa</h3>
-                    <p>Uso de biomassa e energia solar fotovoltaica para mover as fazendas do futuro sem agredir o meio ambiente.</p>
+                    <img src="https://images.unsplash.com/photo-1473976377429-97f36ae8af0e?auto=format&fit=crop&w=400&q=80" alt="Plantação Sustentável" class="card-img">
+                    <div class="card-body">
+                        <h3>Energia Limpa</h3>
+                        <p>Uso de biomassa e energia solar fotovoltaica para mover as fazendas do futuro sem agredir o meio ambiente.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -77,3 +96,27 @@
         <p style="text-align: center; margin-bottom: 20px;">Preencha os dados abaixo para validar sua ideia de projeto.</p>
         
         <form id="form-agrinho" onsubmit="validarFormulario(event)">
+            <div class="form-group">
+                <label for="nome">Nome Completo:</label>
+                <input type="text" id="nome" required placeholder="Digite seu nome completo">
+            </div>
+            <div class="form-group">
+                <label for="escola">Sua Escola (Paraná):</label>
+                <input type="text" id="escola" required placeholder="Ex: Colégio Estadual...">
+            </div>
+            <div class="form-group">
+                <label for="projeto">Resumo da sua Ideia:</label>
+                <textarea id="projeto" rows="4" required placeholder="Conte brevemente o que seu projeto faz..."></textarea>
+            </div>
+            <button type="submit" class="btn-neon" style="width: 100%; border: none;">Enviar Projeto</button>
+        </form>
+        <div id="mensagem-sucesso" class="hidden"></div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Concurso Agrinho Paraná - Criado para a categoria Ensino Médio.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
