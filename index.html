@@ -11,10 +11,10 @@
     <header>
         <div class="logo">AGRINHO <span>2026</span></div>
         <nav>
-            <a href="#" onclick="rolarParaSeçao('inicio'); return false;">Início</a>
-            <a href="#" onclick="rolarParaSeçao('sobre'); return false;">O Concurso</a>
-            <a href="#" onclick="rolarParaSeçao('tecnologia'); return false;">Inovação</a>
-            <a href="#" onclick="rolarParaSeçao('inscricao'); return false;">Inscrição</a>
+            <a href="#inicio" class="active">Início</a>
+            <a href="#sobre">O Concurso</a>
+            <a href="#tecnologia">Inovação</a>
+            <a href="#inscricao">Inscrição</a>
         </nav>
     </header>
 
@@ -22,7 +22,7 @@
         <div class="hero-content">
             <h1>O Futuro do Campo é <span>Digital</span></h1>
             <p>Concurso Agrinho Paraná 2026: Conectando o Ensino Médio à inovação sustentável e tecnológica no agronegócio.</p>
-            <button class="btn-neon" onclick="rolarParaSeçao('inscricao')">Participe Agora</button>
+            <a href="#inscricao" class="btn-neon">Participe Agora</a>
         </div>
     </section>
 
@@ -32,3 +32,9 @@
             <div class="tab-menu">
                 <button class="tab-btn active" onclick="mudarAba(event, 'objetivo')">Objetivo</button>
                 <button class="tab-btn" onclick="mudarAba(event, 'categorias')">Categorias</button>
+                <button class="tab-btn" onclick="mudarAba(event, 'premios')">Prêmios</button>
+            </div>
+            
+            <div id="objetivo" class="tab-content active">
+                <h3>Incentivando mentes brilhantes</h3>
+                <p>O Agrinho 2026 busca integrar o conhecimento do Ensino Médio com
