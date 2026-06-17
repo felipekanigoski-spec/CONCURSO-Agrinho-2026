@@ -1,7 +1,5 @@
 function mostrarSecao(id) {
-  let secoes = document.querySelectorAll(".secao");
-
-  secoes.forEach(secao => {
+  document.querySelectorAll(".secao").forEach(secao => {
     secao.classList.remove("ativa");
   });
 
@@ -9,13 +7,13 @@ function mostrarSecao(id) {
 }
 
 function responder(resposta) {
-  let resultado = document.getElementById("resultado");
+  const resultado = document.getElementById("resultado");
 
   if (resposta === false) {
-    resultado.textContent = "✔️ Correto! Nem tudo na internet é real.";
-    resultado.style.color = "lightgreen";
+    resultado.textContent = "✔ Correto! Nem tudo na internet é confiável.";
+    resultado.style.color = "#00ff99";
   } else {
-    resultado.textContent = "❌ Incorreto! Vídeos podem ser manipulados.";
-    resultado.style.color = "red";
+    resultado.textContent = "❌ Incorreto! Conteúdos podem ser manipulados por IA.";
+    resultado.style.color = "#ff4d4d";
   }
 }
