@@ -4,64 +4,58 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Cidadania Digital e IA</title>
+
   <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
+
+  <div class="background"></div>
+
   <header>
-    <h1>🌐 Cidadania Digital e Inteligência Artificial</h1>
-    <p>Deepfakes, Fake News e o impacto na sociedade</p>
+    <h1>🌐 Cidadania Digital & IA</h1>
+    <p>Deepfakes • Fake News • Segurança Digital</p>
   </header>
 
   <nav>
     <button onclick="mostrarSecao('inicio')">Início</button>
-    <button onclick="mostrarSecao('deepfakes')">O que são Deepfakes</button>
+    <button onclick="mostrarSecao('deepfakes')">Deepfakes</button>
     <button onclick="mostrarSecao('fakeNews')">Fake News</button>
-    <button onclick="mostrarSecao('dicas')">Como se proteger</button>
+    <button onclick="mostrarSecao('dicas')">Proteção</button>
     <button onclick="mostrarSecao('quiz')">Quiz</button>
   </nav>
 
   <main>
 
     <section id="inicio" class="secao ativa">
-      <h2>Bem-vindo!</h2>
-      <p>
-        Este site tem o objetivo de conscientizar sobre o uso da Inteligência Artificial,
-        principalmente sobre deepfakes e desinformação.
-      </p>
+      <h2>Bem-vindo ao futuro da informação</h2>
+      <p>Entenda como a Inteligência Artificial pode manipular mídias e como se proteger.</p>
     </section>
 
     <section id="deepfakes" class="secao">
-      <h2>🎭 O que são Deepfakes?</h2>
-      <p>
-        Deepfakes são vídeos, áudios ou imagens manipulados por IA para parecerem reais,
-        mas que mostram coisas que nunca aconteceram.
-      </p>
+      <h2>🎭 Deepfakes</h2>
+      <p>Conteúdos falsos criados por IA que imitam pessoas reais com alta precisão.</p>
     </section>
 
     <section id="fakeNews" class="secao">
       <h2>📰 Fake News</h2>
-      <p>
-        Fake news são informações falsas espalhadas de forma intencional ou automática,
-        muitas vezes usando IA para parecerem mais convincentes.
-      </p>
+      <p>Informações falsas espalhadas rapidamente, muitas vezes impulsionadas por IA.</p>
     </section>
 
     <section id="dicas" class="secao">
-      <h2>🛡️ Como se proteger</h2>
+      <h2>🛡️ Proteção Digital</h2>
       <ul>
-        <li>Verifique a fonte da informação</li>
-        <li>Desconfie de conteúdos muito chocantes</li>
-        <li>Compare em sites confiáveis</li>
-        <li>Não compartilhe sem ter certeza</li>
+        <li>Verifique fontes confiáveis</li>
+        <li>Desconfie de conteúdos extremos</li>
+        <li>Não compartilhe sem checar</li>
+        <li>Compare informações</li>
       </ul>
     </section>
 
     <section id="quiz" class="secao">
-      <h2>🧠 Quiz rápido</h2>
-      <p>Isso é verdadeiro ou falso?</p>
-
-      <p><strong>“Todo vídeo na internet é real.”</strong></p>
+      <h2>🧠 Quiz</h2>
+      <p><strong>Todo vídeo na internet é verdadeiro?</strong></p>
 
       <button onclick="responder(true)">Verdadeiro</button>
       <button onclick="responder(false)">Falso</button>
@@ -72,7 +66,7 @@
   </main>
 
   <footer>
-    <p>Projeto escolar — Cidadania Digital e IA</p>
+    <p>Projeto escolar • Tecnologia e Consciência Digital</p>
   </footer>
 
   <script src="script.js"></script>
