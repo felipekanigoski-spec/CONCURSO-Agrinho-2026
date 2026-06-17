@@ -1,132 +1,221 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Orbitron', sans-serif;
+/* Configurações Gerais - Cores de Galáxia */
+:root {
+    --bg-space: #0b0b1e;
+    --neon-green: #39ff14;
+    --neon-purple: #9d4edd;
+    --text-color: #e0e0ff;
 }
 
 body {
-  background: #050814;
-  color: white;
-  overflow: hidden;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-space);
+    color: var(--text-color);
+    overflow-x: hidden;
 }
 
-/* FUNDO GRADIENTE ANIMADO */
-.bg {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at 20% 20%, #1b2cff55, transparent 40%),
-              radial-gradient(circle at 80% 80%, #00f7ff33, transparent 40%),
-              #050814;
-  animation: move 8s infinite alternate;
-  z-index: -2;
+/* Fundo Estelar */
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+                radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px);
+    background-size: 550px 550px;
+    z-index: -1;
 }
 
-@keyframes move {
-  0% { filter: hue-rotate(0deg); }
-  100% { filter: hue-rotate(30deg); }
+/* Header Estilo Nave Mãe */
+header {
+    background: rgba(15, 15, 35, 0.85);
+    border-bottom: 2px solid var(--neon-purple);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    position: sticky;
+    top: 0;
+    backdrop-filter: blur(10px);
+    z-index: 100;
 }
 
-/* CONTAINER */
-.container {
-  display: flex;
-  height: 100vh;
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-/* SIDEBAR */
-.sidebar {
-  width: 250px;
-  background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(10px);
-  border-right: 1px solid #00f7ff33;
-  padding: 20px;
+.alien-icon {
+    font-size: 2rem;
+    animation: flutuar 3s ease-in-out infinite;
 }
 
-.sidebar h2 {
-  color: #00f7ff;
-  margin-bottom: 20px;
+header h1 {
+    font-size: 1.5rem;
+    color: var(--neon-green);
+    text-shadow: 0 0 8px var(--neon-green);
+    margin: 0;
 }
 
-.sidebar button {
-  width: 100%;
-  margin: 10px 0;
-  padding: 12px;
-  background: transparent;
-  border: 1px solid #00f7ff55;
-  color: white;
-  cursor: pointer;
-  border-radius: 10px;
-  transition: 0.3s;
+nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: bold;
+    transition: 0.3s;
 }
 
-.sidebar button:hover {
-  background: #00f7ff22;
-  box-shadow: 0 0 15px #00f7ff55;
-  transform: translateX(5px);
+nav a:hover {
+    color: var(--neon-purple);
+    text-shadow: 0 0 10px var(--neon-purple);
 }
 
-/* MAIN */
-main {
-  flex: 1;
-  padding: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* Hero Section */
+#hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 100px 50px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-/* CARDS */
+.hero-content {
+    max-width: 60%;
+}
+
+#hero h2 {
+    font-size: 2.5rem;
+    color: #fff;
+    text-shadow: 0 0 15px var(--neon-purple);
+}
+
+.btn-action {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 30px;
+    background: transparent;
+    border: 2px solid var(--neon-green);
+    color: var(--neon-green);
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(57, 255, 20, 0.3);
+    transition: 0.3s;
+}
+
+.btn-action:hover {
+    background: var(--neon-green);
+    color: #000;
+    box-shadow: 0 0 20px var(--neon-green);
+}
+
+.alien-ship {
+    font-size: 6rem;
+    animation: abducao 4s ease-in-out infinite;
+}
+
+/* Cards de Informações */
+.card-section {
+    display: flex;
+    gap: 30px;
+    padding: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
 .card {
-  display: none;
-  width: 80%;
-  max-width: 700px;
-  padding: 30px;
-  border-radius: 20px;
-
-  background: rgba(255,255,255,0.05);
-  border: 1px solid #00f7ff33;
-
-  backdrop-filter: blur(15px);
-  box-shadow: 0 0 40px #00f7ff11;
-
-  animation: fade 0.4s ease;
+    background: rgba(25, 25, 50, 0.6);
+    border: 1px solid var(--neon-purple);
+    border-radius: 12px;
+    padding: 30px;
+    flex: 1;
+    box-shadow: 0 5px 15px rgba(157, 78, 221, 0.2);
 }
 
-.card.active {
-  display: block;
+.card h3 {
+    color: var(--neon-green);
+    margin-top: 0;
 }
 
-@keyframes fade {
-  from { transform: scale(0.95); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
+/* Simulador/Quiz Interativo */
+#scanner {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 40px;
+    background: rgba(10, 10, 25, 0.9);
+    border: 3px dashed var(--neon-green);
+    border-radius: 20px;
+    text-align: center;
 }
 
-h1 {
-  color: #00f7ff;
-  margin-bottom: 15px;
+.quiz-container {
+    margin-top: 30px;
 }
 
-/* BOTÕES */
-button {
-  padding: 10px 15px;
-  margin-top: 15px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-
-  background: #00f7ff;
-  color: black;
-  font-weight: bold;
-  transition: 0.3s;
+#pergunta-box {
+    min-height: 80px;
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 8px;
 }
 
-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px #00f7ff;
+.botoes-quiz {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 
-/* RESULTADO */
-#resultado {
-  margin-top: 15px;
-  font-weight: bold;
+.btn-quiz {
+    padding: 12px 25px;
+    background: #1a1a3a;
+    border: 1px solid var(--text-color);
+    color: white;
+    cursor: pointer;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.btn-quiz:hover {
+    background: var(--neon-purple);
+    border-color: var(--neon-purple);
+}
+
+#resultado-scanner {
+    margin-top: 25px;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 40px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    background: #050510;
+}
+
+.tag-destaque {
+    color: var(--neon-green);
+    font-family: monospace;
+    background: rgba(0,0,0,0.4);
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+/* Animações Espaciais */
+@keyframes flutuar {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+@keyframes abducao {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
 }
