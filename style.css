@@ -1,97 +1,56 @@
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial;
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #0f172a;
+  color: white;
 }
 
-body{
-background:#050816;
-color:#fff;
-overflow-x:hidden;
+header {
+  background: #1e3a8a;
+  padding: 20px;
+  text-align: center;
 }
 
-/* fundo estrelas */
-.stars{
-position:fixed;
-inset:0;
-background:radial-gradient(#ffffff22 1px,transparent 1px);
-background-size:40px 40px;
-z-index:-1;
-animation:move 20s linear infinite;
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+  background: #111827;
+  flex-wrap: wrap;
 }
 
-@keyframes move{
-from{transform:translateY(0)}
-to{transform:translateY(100px)}
+nav button {
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  background: #2563eb;
+  color: white;
+  border-radius: 5px;
 }
 
-/* topo */
-header{
-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:20px;
+nav button:hover {
+  background: #1d4ed8;
 }
 
-h1{
-font-size:3rem;
-color:#00ffcc;
-text-shadow:0 0 20px #00ffcc;
+main {
+  padding: 20px;
 }
 
-p{
-max-width:700px;
-margin-top:15px;
-opacity:.9;
+.secao {
+  display: none;
+  background: #1f2937;
+  padding: 20px;
+  border-radius: 10px;
 }
 
-.btn{
-margin-top:20px;
-padding:12px 20px;
-background:#00ffcc;
-border:none;
-border-radius:10px;
-font-weight:bold;
-cursor:pointer;
+.secao.ativa {
+  display: block;
 }
 
-/* seções */
-section{
-padding:70px 20px;
-text-align:center;
-}
-
-.card{
-background:#0b1228;
-padding:20px;
-border-radius:15px;
-max-width:700px;
-margin:auto;
-box-shadow:0 0 15px #00ffcc22;
-}
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:15px;
-max-width:900px;
-margin:auto;
-}
-
-.box{
-background:#0b1228;
-padding:15px;
-border-radius:12px;
-}
-
-/* jogo */
-canvas{
-background:#000814;
-border:2px solid #00ffcc;
-margin-top:20px;
-border-radius:10px;
+footer {
+  text-align: center;
+  padding: 15px;
+  background: #111827;
+  margin-top: 20px;
 }
