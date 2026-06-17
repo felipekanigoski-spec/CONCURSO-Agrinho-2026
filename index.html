@@ -3,72 +3,76 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Cidadania Digital e IA</title>
+  <title>IA & Cidadania Digital</title>
 
-  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-  <div class="background"></div>
+<div class="bg"></div>
+<div class="particles"></div>
 
-  <header>
-    <h1>🌐 Cidadania Digital & IA</h1>
-    <p>Deepfakes • Fake News • Segurança Digital</p>
-  </header>
+<div class="container">
 
-  <nav>
-    <button onclick="mostrarSecao('inicio')">Início</button>
-    <button onclick="mostrarSecao('deepfakes')">Deepfakes</button>
-    <button onclick="mostrarSecao('fakeNews')">Fake News</button>
-    <button onclick="mostrarSecao('dicas')">Proteção</button>
-    <button onclick="mostrarSecao('quiz')">Quiz</button>
-  </nav>
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <h2>🧠 IA GUARD</h2>
 
+    <button onclick="mostrar('inicio')">🏠 Início</button>
+    <button onclick="mostrar('deepfakes')">🎭 Deepfakes</button>
+    <button onclick="mostrar('fake')">📰 Fake News</button>
+    <button onclick="mostrar('seguranca')">🛡️ Segurança</button>
+    <button onclick="mostrar('quiz')">🧩 Quiz</button>
+  </aside>
+
+  <!-- CONTEÚDO -->
   <main>
 
-    <section id="inicio" class="secao ativa">
-      <h2>Bem-vindo ao futuro da informação</h2>
-      <p>Entenda como a Inteligência Artificial pode manipular mídias e como se proteger.</p>
+    <section id="inicio" class="card active">
+      <h1>🌐 Cidadania Digital</h1>
+      <p>Inteligência Artificial, deepfakes e desinformação estão moldando o mundo digital.</p>
     </section>
 
-    <section id="deepfakes" class="secao">
-      <h2>🎭 Deepfakes</h2>
-      <p>Conteúdos falsos criados por IA que imitam pessoas reais com alta precisão.</p>
+    <section id="deepfakes" class="card">
+      <h1>🎭 Deepfakes</h1>
+      <p>Vídeos e imagens manipuladas por IA que parecem reais, mas são falsos.</p>
     </section>
 
-    <section id="fakeNews" class="secao">
-      <h2>📰 Fake News</h2>
-      <p>Informações falsas espalhadas rapidamente, muitas vezes impulsionadas por IA.</p>
+    <section id="fake" class="card">
+      <h1>📰 Fake News</h1>
+      <p>Informações falsas espalhadas rapidamente por redes sociais e IA.</p>
     </section>
 
-    <section id="dicas" class="secao">
-      <h2>🛡️ Proteção Digital</h2>
+    <section id="seguranca" class="card">
+      <h1>🛡️ Proteção Digital</h1>
+
       <ul>
         <li>Verifique fontes confiáveis</li>
-        <li>Desconfie de conteúdos extremos</li>
+        <li>Desconfie de conteúdos chocantes</li>
         <li>Não compartilhe sem checar</li>
-        <li>Compare informações</li>
+        <li>Use pensamento crítico</li>
       </ul>
     </section>
 
-    <section id="quiz" class="secao">
-      <h2>🧠 Quiz</h2>
-      <p><strong>Todo vídeo na internet é verdadeiro?</strong></p>
+    <section id="quiz" class="card">
+      <h1>🧩 Quiz IA</h1>
 
-      <button onclick="responder(true)">Verdadeiro</button>
-      <button onclick="responder(false)">Falso</button>
+      <p>“Todo conteúdo em vídeo na internet é verdadeiro?”</p>
+
+      <div class="buttons">
+        <button onclick="responder(true)">Verdadeiro</button>
+        <button onclick="responder(false)">Falso</button>
+      </div>
 
       <p id="resultado"></p>
     </section>
 
   </main>
 
-  <footer>
-    <p>Projeto escolar • Tecnologia e Consciência Digital</p>
-  </footer>
+</div>
 
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
