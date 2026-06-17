@@ -1,187 +1,80 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Agrinho 2026 - Futuro Sustentável</title>
-
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
-body{background:#050816;color:#fff;overflow-x:hidden}
-
-/* fundo */
-.stars{
-position:fixed;inset:0;
-background:radial-gradient(#ffffff22 1px,transparent 1px);
-background-size:40px 40px;
-z-index:-1;
-animation:move 20s linear infinite;
-}
-@keyframes move{from{transform:translateY(0)}to{transform:translateY(100px)}}
-
-/* topo */
-header{
-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:20px;
-}
-
-h1{
-font-size:3rem;
-color:#00ffcc;
-text-shadow:0 0 20px #00ffcc;
-}
-
-p{max-width:700px;margin-top:15px;opacity:.9}
-
-.btn{
-margin-top:20px;
-padding:12px 20px;
-background:#00ffcc;
-border:none;
-border-radius:10px;
-cursor:pointer;
-font-weight:bold;
-}
-
-/* seções */
-section{padding:70px 20px;text-align:center}
-
-.card{
-background:#0b1228;
-padding:20px;
-border-radius:15px;
-margin:10px auto;
-max-width:700px;
-box-shadow:0 0 15px #00ffcc22;
-}
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:15px;
-max-width:900px;
-margin:auto;
-}
-
-.box{
-background:#0b1228;
-padding:15px;
-border-radius:12px;
-}
-
-/* jogo */
-canvas{
-background:#000814;
-border:2px solid #00ffcc;
-margin-top:20px;
-border-radius:10px;
-}
-
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cidadania Digital e IA</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 
 <body>
+  <header>
+    <h1>🌐 Cidadania Digital e Inteligência Artificial</h1>
+    <p>Deepfakes, Fake News e o impacto na sociedade</p>
+  </header>
 
-<div class="stars"></div>
+  <nav>
+    <button onclick="mostrarSecao('inicio')">Início</button>
+    <button onclick="mostrarSecao('deepfakes')">O que são Deepfakes</button>
+    <button onclick="mostrarSecao('fakeNews')">Fake News</button>
+    <button onclick="mostrarSecao('dicas')">Como se proteger</button>
+    <button onclick="mostrarSecao('quiz')">Quiz</button>
+  </nav>
 
-<header>
-<h1>🌱 Agrinho 2026</h1>
-<p>Agricultura sustentável com tecnologia, inovação e cuidado com o planeta.</p>
-<a href="#sobre"><button class="btn">Explorar</button></a>
-</header>
+  <main>
 
-<section id="sobre">
-<h2>🌍 Sobre</h2>
-<div class="card">
-A agricultura sustentável usa tecnologia como drones e satélites para melhorar a produção e proteger o meio ambiente.
-</div>
-</section>
+    <section id="inicio" class="secao ativa">
+      <h2>Bem-vindo!</h2>
+      <p>
+        Este site tem o objetivo de conscientizar sobre o uso da Inteligência Artificial,
+        principalmente sobre deepfakes e desinformação.
+      </p>
+    </section>
 
-<section>
-<h2>🚀 Tecnologias</h2>
-<div class="grid">
-<div class="box">🛰️ Satélites</div>
-<div class="box">🚁 Drones</div>
-<div class="box">🤖 IA no campo</div>
-<div class="box">☀️ Energia solar</div>
-</div>
-</section>
+    <section id="deepfakes" class="secao">
+      <h2>🎭 O que são Deepfakes?</h2>
+      <p>
+        Deepfakes são vídeos, áudios ou imagens manipulados por IA para parecerem reais,
+        mas que mostram coisas que nunca aconteceram.
+      </p>
+    </section>
 
-<section>
-<h2>📊 Benefícios</h2>
-<div class="grid">
-<div class="box">🌱 Mais produção</div>
-<div class="box">💧 Menos desperdício</div>
-<div class="box">🌎 Sustentabilidade</div>
-</div>
-</section>
+    <section id="fakeNews" class="secao">
+      <h2>📰 Fake News</h2>
+      <p>
+        Fake news são informações falsas espalhadas de forma intencional ou automática,
+        muitas vezes usando IA para parecerem mais convincentes.
+      </p>
+    </section>
 
-<section>
-<h2>🎮 Jogo Agrinho</h2>
-<p>Pressione ESPAÇO para jogar</p>
-<canvas id="game" width="300" height="500"></canvas>
-<p id="score">0</p>
-</section>
+    <section id="dicas" class="secao">
+      <h2>🛡️ Como se proteger</h2>
+      <ul>
+        <li>Verifique a fonte da informação</li>
+        <li>Desconfie de conteúdos muito chocantes</li>
+        <li>Compare em sites confiáveis</li>
+        <li>Não compartilhe sem ter certeza</li>
+      </ul>
+    </section>
 
-<script>
-/* ===== JOGO FLAPPY SIMPLES ===== */
-const c=document.getElementById("game");
-const ctx=c.getContext("2d");
+    <section id="quiz" class="secao">
+      <h2>🧠 Quiz rápido</h2>
+      <p>Isso é verdadeiro ou falso?</p>
 
-let bird={y:200,v:0};
-let pipes=[];
-let score=0;
-let game=true;
+      <p><strong>“Todo vídeo na internet é real.”</strong></p>
 
-function pipe(){
-pipes.push({x:300,h:Math.random()*200+50});
-}
+      <button onclick="responder(true)">Verdadeiro</button>
+      <button onclick="responder(false)">Falso</button>
 
-setInterval(()=>{if(game)pipe()},1500);
+      <p id="resultado"></p>
+    </section>
 
-document.addEventListener("keydown",e=>{
-if(e.code==="Space")bird.v=-6;
-});
+  </main>
 
-function loop(){
-ctx.clearRect(0,0,300,500);
+  <footer>
+    <p>Projeto escolar — Cidadania Digital e IA</p>
+  </footer>
 
-bird.v+=0.3;
-bird.y+=bird.v;
-
-ctx.fillStyle="#00ffcc";
-ctx.fillRect(50,bird.y,20,20);
-
-pipes.forEach(p=>{
-p.x-=2;
-
-ctx.fillStyle="#4ade80";
-ctx.fillRect(p.x,0,40,p.h);
-ctx.fillRect(p.x,p.h+100,40,500);
-
-if(p.x===50)score++;
-
-if(
-50>p.x && 50<p.x+40 &&
-(bird.y<p.h || bird.y>p.h+100)
-){
-game=false;
-}
-});
-
-document.getElementById("score").innerText=score;
-
-if(game)requestAnimationFrame(loop);
-else ctx.fillText("Game Over",100,250);
-}
-
-loop();
-</script>
-
+  <script src="script.js"></script>
 </body>
 </html>
