@@ -1,63 +1,21 @@
-const c = document.getElementById("game");
-const ctx = c.getContext("2d");
+function mostrarSecao(id) {
+  let secoes = document.querySelectorAll(".secao");
 
-let bird = { y: 200, v: 0 };
-let pipes = [];
-let score = 0;
-let game = true;
+  secoes.forEach(secao => {
+    secao.classList.remove("ativa");
+  });
 
-function createPipe(){
-pipes.push({ x: 300, h: Math.random()*200+50 });
+  document.getElementById(id).classList.add("ativa");
 }
 
-setInterval(()=>{
-if(game) createPipe();
-},1500);
+function responder(resposta) {
+  let resultado = document.getElementById("resultado");
 
-document.addEventListener("keydown", e=>{
-if(e.code === "Space"){
-bird.v = -6;
+  if (resposta === false) {
+    resultado.textContent = "✔️ Correto! Nem tudo na internet é real.";
+    resultado.style.color = "lightgreen";
+  } else {
+    resultado.textContent = "❌ Incorreto! Vídeos podem ser manipulados.";
+    resultado.style.color = "red";
+  }
 }
-});
-
-function loop(){
-
-ctx.clearRect(0,0,300,500);
-
-/* gravidade */
-bird.v += 0.3;
-bird.y += bird.v;
-
-/* jogador */
-ctx.fillStyle="#00ffcc";
-ctx.fillRect(50,bird.y,20,20);
-
-/* tubos */
-pipes.forEach(p=>{
-p.x -= 2;
-
-ctx.fillStyle="#4ade80";
-ctx.fillRect(p.x,0,40,p.h);
-ctx.fillRect(p.x,p.h+100,40,500);
-
-/* pontuação */
-if(p.x === 50) score++;
-
-/* colisão */
-if(
-50 > p.x && 50 < p.x+40 &&
-(bird.y < p.h || bird.y > p.h+100)
-){
-game = false;
-}
-});
-
-/* score */
-document.getElementById("score").innerText = score;
-
-/* loop */
-if(game) requestAnimationFrame(loop);
-else ctx.fillText("Game Over",100,250);
-}
-
-loop();
