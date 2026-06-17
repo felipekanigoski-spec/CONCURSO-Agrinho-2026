@@ -1,78 +1,70 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>IA & Cidadania Digital</title>
-
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invasão Anti-Fake: Cidadania Digital & IA</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<div class="bg"></div>
-<div class="particles"></div>
+    <div class="stars"></div>
 
-<div class="container">
+    <header>
+        <div class="logo-area">
+            <span class="alien-icon">🛸</span>
+            <h1>Missão: Cidadania Digital</h1>
+        </div>
+        <nav>
+            <a href="#sobre">O Perigo</a>
+            <a href="#deepfakes">Deepfakes</a>
+            <a href="#scanner">Scanner Alien</a>
+        </nav>
+    </header>
 
-  <!-- SIDEBAR -->
-  <aside class="sidebar">
-    <h2>🧠 IA GUARD</h2>
+    <main>
+        <section id="hero">
+            <div class="hero-content">
+                <h2>Alerta Intergaláctico: A Desinformação está Invadindo a Terra!</h2>
+                <p>Mídias manipuladas por IA e Fake News automatizadas estão orbitando nossas redes sociais. Prepare sua nave e aprenda a se defender.</p>
+                <a href="#scanner" class="btn-action">Iniciar Treinamento</a>
+            </div>
+            <div class="alien-ship">🛸</div>
+        </section>
 
-    <button onclick="mostrar('inicio')">🏠 Início</button>
-    <button onclick="mostrar('deepfakes')">🎭 Deepfakes</button>
-    <button onclick="mostrar('fake')">📰 Fake News</button>
-    <button onclick="mostrar('seguranca')">🛡️ Segurança</button>
-    <button onclick="mostrar('quiz')">🧩 Quiz</button>
-  </aside>
+        <section id="sobre" class="card-section">
+            <div class="card">
+                <h3>👾 O Ataque das Deepfakes</h3>
+                <p>Deepfakes são vídeos, áudios ou fotos criados por Inteligência Artificial que imitam perfeitamente pessoas reais. Parecem reais, mas são armadilhas digitais para espalhar mentiras.</p>
+            </div>
+            <div class="card">
+                <h3>🚀 Defesa Cibernética</h3>
+                <p>Para não ser capturado pelas Fake News, verifique sempre a fonte, desconfie de notícias bombásticas e use a lógica antes de compartilhar na velocidade da luz.</p>
+            </div>
+        </section>
 
-  <!-- CONTEÚDO -->
-  <main>
+        <section id="scanner">
+            <h2>Radar de Ameaças Holográfico</h2>
+            <p>Recebeu uma notícia suspeita no seu comunicador espacial? Teste seus conhecimentos no nosso simulador de escopo:</p>
+            
+            <div class="quiz-container">
+                <div id="pergunta-box">
+                    <p id="texto-pergunta">Carregando dados da galáxia...</p>
+                </div>
+                <div class="botoes-quiz">
+                    <button class="btn-quiz" onclick="verificarResposta(true)">Verdadeiro (Sinal Limpo)</button>
+                    <button class="btn-quiz" onclick="verificarResposta(false)">Falso (Deepfake/Clone)</button>
+                </div>
+                <div id="resultado-scanner"></div>
+            </div>
+        </section>
+    </main>
 
-    <section id="inicio" class="card active">
-      <h1>🌐 Cidadania Digital</h1>
-      <p>Inteligência Artificial, deepfakes e desinformação estão moldando o mundo digital.</p>
-    </section>
+    <footer>
+        <p>© 2026 - Desenvolvido para a Recuperação Prática de Educação Digital e IA.</p>
+        <p>Tag do Repositório: <span class="tag-destaque">#cidadaniadigital2026</span></p>
+    </footer>
 
-    <section id="deepfakes" class="card">
-      <h1>🎭 Deepfakes</h1>
-      <p>Vídeos e imagens manipuladas por IA que parecem reais, mas são falsos.</p>
-    </section>
-
-    <section id="fake" class="card">
-      <h1>📰 Fake News</h1>
-      <p>Informações falsas espalhadas rapidamente por redes sociais e IA.</p>
-    </section>
-
-    <section id="seguranca" class="card">
-      <h1>🛡️ Proteção Digital</h1>
-
-      <ul>
-        <li>Verifique fontes confiáveis</li>
-        <li>Desconfie de conteúdos chocantes</li>
-        <li>Não compartilhe sem checar</li>
-        <li>Use pensamento crítico</li>
-      </ul>
-    </section>
-
-    <section id="quiz" class="card">
-      <h1>🧩 Quiz IA</h1>
-
-      <p>“Todo conteúdo em vídeo na internet é verdadeiro?”</p>
-
-      <div class="buttons">
-        <button onclick="responder(true)">Verdadeiro</button>
-        <button onclick="responder(false)">Falso</button>
-      </div>
-
-      <p id="resultado"></p>
-    </section>
-
-  </main>
-
-</div>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
