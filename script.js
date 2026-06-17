@@ -1,19 +1,19 @@
-function mostrarSecao(id) {
-  document.querySelectorAll(".secao").forEach(secao => {
-    secao.classList.remove("ativa");
+function mostrar(id) {
+  document.querySelectorAll(".card").forEach(c => {
+    c.classList.remove("active");
   });
 
-  document.getElementById(id).classList.add("ativa");
+  document.getElementById(id).classList.add("active");
 }
 
-function responder(resposta) {
-  const resultado = document.getElementById("resultado");
+function responder(resp) {
+  const r = document.getElementById("resultado");
 
-  if (resposta === false) {
-    resultado.textContent = "✔ Correto! Nem tudo na internet é confiável.";
-    resultado.style.color = "#00ff99";
+  if (!resp) {
+    r.textContent = "✔ Correto! Vídeos podem ser manipulados por IA.";
+    r.style.color = "#00ffcc";
   } else {
-    resultado.textContent = "❌ Incorreto! Conteúdos podem ser manipulados por IA.";
-    resultado.style.color = "#ff4d4d";
+    r.textContent = "❌ Errado! Nem tudo na internet é verdadeiro.";
+    r.style.color = "#ff4d4d";
   }
 }
